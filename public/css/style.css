@@ -1,0 +1,66 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+    scroll-behavior: smooth;
+    font-family: Jost;
+}
+
+html,body
+{
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden; 
+    scroll-behavior: smooth;
+
+}
+
+html{
+    background-color: white;
+    font-family: 'Baloo Da 2', cursive, 'Helvetica Neue', Arial;
+    font-size: 20px;
+    margin:0;
+    padding:0;
+    scroll-behavior: smooth;
+    position: relative;
+}
+body{
+    margin:0px;
+}
+
+.nv-cover{
+    height:100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.70), rgba(0, 0, 0, 0.70)), url(pics/coverbg.png);
+    width:100%;
+    background-size: cover;
+    background-position: center;
+    margin: 0px;
+    background-attachment: fixed;
+}
+
+.nv-logo{
+    width: 30%;
+    position:relative;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    float: left;
+    text-align: center;
+    align-content: center;
+}
+
+.nv-arrow{
+    width: 4%;
+    position: relative;
+    top:80%;
+    left: 20%;
+    float: left;
+    text-align: center;
+    align-content: center;
+}
