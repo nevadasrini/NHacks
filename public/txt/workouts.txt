@@ -1,0 +1,7 @@
+$Name of workout,Type,Intensity,Parts of body array,Recommended reps array,Equipment needed,Space needed,Time needed
+
+$push-ups,calisthenics,moderate,[arms,shoulders,upper body],[10, 15, 20],none,none,minimal
+
+$sit-ups,calisthenics,moderate,[],[10,15,20],none,none,minimal
+
+$running,cardio,moderate,[legs, lower body],[30, 60, 90],none,outdoors treadmill,moderate

@@ -1,0 +1,98 @@
+
+
+// listen for auth status changes and logs them to the console
+
+
+function parseCSV(csv) {
+    let x = csv.split(",");
+    for(let i=0; i< x.length; i++){
+        x[i]=x[i].toLowerCase().trim()
+    }
+    return x;
+}
+
+auth.onAuthStateChanged(user => {
+    if (user) {
+        console.log('user logged in: ', user);
+    } else {
+        console.log('user logged out');
+    }
+})
+
+// sign up
+
+    const signupForm = document.querySelector('#signup-form');
+    const ele = document.getElementsByName('position');
+    let pos = "Job Seeker";
+    for(i = 0; i < ele.length; i++) { 
+        if(ele[i].checked) 
+            pos = ele[i].value;
+    } 
+    signupForm.addEventListener('submit', (e) => {
+    // prevent refresh (losing info)
+    e.preventDefault();
+    // get user info
+    const email = signupForm['signup-email'].value;
+    const password = signupForm['signup-password'].value;
+    const numbersign = signupForm['signup-number'].value;
+    db.collection('users').doc().set({
+        name: signupForm.name.value,
+        age: signupForm.age.value,
+        field: signupForm.field.value.toLowerCase(),
+        skills: parseCSV(signupForm.skills.value),
+        email: signupForm.email.value,
+        bio: signupForm.bio.value,
+        number: numbersign,
+        position: pos
+    })
+
+    // sign up the user
+    auth.createUserWithEmailAndPassword(email, password).then(cred => {
+        const modal = document.querySelector('#modal-signup');
+        M.Modal.getInstance(modal).close();
+        signupForm.reset();
+    })
+
+    auth.onAuthStateChanged(user => {
+        db.collection('users').doc(docID).update({
+            userID: user.uid || "none"
+        })
+    })
+})
+
+
+
+
+
+    // log out
+    const logout = document.querySelector('#logout');
+    logout.addEventListener('click', (e) => {
+    // prevent default actions (refresh)
+    e.preventDefault()
+    auth.signOut().then(() => {
+    //
+    })
+})
+
+
+
+    //  login
+    const loginForm = document.querySelector('#login-form');
+    loginForm.addEventListener('submit', (e) => {
+    // prevent default actions (refresh)
+    e.preventDefault()
+
+    // get user info
+    const email = loginForm['login-email'].value;
+    const password = loginForm['login-password'].value;
+
+    // log in user
+    auth.signInWithEmailAndPassword(email, password).then(cred => {
+        // close login modal and reset form
+        const modal = document.querySelector('#modal-login');
+        M.Modal.getInstance(modal).close();
+        loginForm.reset();
+    })
+})
+
+
