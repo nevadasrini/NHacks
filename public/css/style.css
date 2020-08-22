@@ -7,7 +7,7 @@
     vertical-align: baseline;
     background: transparent;
     scroll-behavior: smooth;
-    font-family: Jost;
+    font-family: 'Baloo Da 2';
 }
 
 html,body
@@ -34,33 +34,127 @@ body{
     margin:0px;
 }
 
-.nv-cover{
-    height:100vh;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.70), rgba(0, 0, 0, 0.70)), url(pics/coverbg.png);
-    width:100%;
+
+header {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url(/public/pics/fitness.webp);
+    height: 100vh;
     background-size: cover;
     background-position: center;
     margin: 0px;
     background-attachment: fixed;
 }
 
-.nv-logo{
-    width: 30%;
-    position:relative;
-    top:50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    float: left;
-    text-align: center;
-    align-content: center;
+h1{
+    letter-spacing: 2px;
+    word-spacing: 8px;
+    color: white;
+    font-weight: 100;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    font-size: 270%;
 }
 
-.nv-arrow{
-    width: 4%;
-    position: relative;
-    top:80%;
-    left: 20%;
+h3{
+    letter-spacing: 1px;
+    word-spacing: 4px;
+    color: white;
+    font-weight: 100;
+    text-transform: uppercase;
+    padding-top:10px;
+    margin-top:0;
+}
+
+.text {
+    height: 400px;
+    margin-top: 20px;
+    margin-left: 40px;
+    padding: 20px;
+}
+
+.intro .text {
+    background-color: rgba(0, 0, 0, 0.31);
+    width: 50%;
+    color: white;
     float: left;
-    text-align: center;
-    align-content: center;
+}
+
+.btn:link,
+.btn:visited{
+    display: inline-block;
+    border-radius: 200px;
+    text-decoration: none;
+    padding: 10px 30px;
+    margin-top: 40px;
+    margin-right: 20px;
+    transition: background-color 0.5s, border 0.5s, color 0.5s;
+    box-shadow: 13px 18px 23px -2px rgba(0,0,0,0.75);
+}
+
+.btn:hover,
+.btn:active{
+    transform: translate(0, 3px);
+}
+
+.btn-full:link,
+.btn-full:visited{
+    background-color: #f39c12;
+    color: white;
+    border: 1px solid #f39c12;
+}
+
+
+.btn-ghost:link,
+.btn-ghost:visited{
+    color: #f39c12;
+    border: 1px solid #f39c12;
+}
+
+.btn-full:hover,
+.btn-full:active{
+    background-color: #d35400;
+    border: 1px solid #d35400;
+    
+}
+
+
+.btn-ghost:hover,
+.btn-ghost:active{
+    background-color: #d35400;
+    border: 1px solid #d35400;
+    color: white;
+}
+
+.logo {
+    height: 100px;
+    width: auto;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.main-nav {
+    float: right;
+    list-style: none;
+    margin-top: 30px;
+    margin-right: 40px;
+}
+
+nav{
+    margin: 0;
+}
+
+.main-nav li {
+    display: inline-block;
+    margin-left: 10px;
+    transition: border-bottom 0.3s;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: white;
+    
+}
+
+.main-nav li a:hover,
+.main-nav li a:active{
+    border-bottom: 2px solid #f39c12;
 }
