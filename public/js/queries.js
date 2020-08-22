@@ -1,12 +1,10 @@
-alert(2);
-console.log(firebase);
 const db = firebase.firestore();
-alert(1);
+const users = db.collection("users");
 
 function getUsers(){ /*in future want to use user ID*/
     return new Promise((resolve,reject)=>{
 
-        db.collection("users").where("email","==",UserID).get().then(
+        users.get().then(
         function(snapshot) {
             let doc = snapshot.docs[0];
             if(doc && doc.exists) { 
@@ -14,7 +12,7 @@ function getUsers(){ /*in future want to use user ID*/
                 resolve(doc.data());
             }
             else{
-                reject("Error user does not exist.");
+                reject("Error no users in database.");
             }
             }).catch((error) => reject(error));
 
@@ -24,7 +22,7 @@ function getUsers(){ /*in future want to use user ID*/
 function getUserInfo(UserID){ /*in future want to use user ID*/
     return new Promise((resolve,reject)=>{
 
-        db.collection("users").where("email","==",UserID).get().then(
+        users.where("email","==",UserID).get().then(
         function(snapshot) {
             let doc = snapshot.docs[0];
             if(doc && doc.exists) { 
