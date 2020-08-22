@@ -35,7 +35,7 @@ auth.onAuthStateChanged(user => {
     const email = signupForm['signup-email'].value;
     const password = signupForm['signup-password'].value;
     const numbersign = signupForm['signup-number'].value;
-    db.collection('users').doc().set({
+    users.doc().set({
         name: signupForm.name.value,
         age: signupForm.age.value,
         field: signupForm.field.value.toLowerCase(),
@@ -54,7 +54,7 @@ auth.onAuthStateChanged(user => {
     })
 
     auth.onAuthStateChanged(user => {
-        db.collection('users').doc(docID).update({
+        users.doc(docID).update({
             userID: user.uid || "none"
         })
     })
