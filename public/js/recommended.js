@@ -7,7 +7,15 @@ auth.onAuthStateChanged(user => {
         try {
             const queryString = window.location.search;
             const urlParams = new URLSearchParams(queryString);
-            const exerciseType = urlParams.get('other');
+            const exerciseType = urlParams.get('type');
+
+            const titleHeader = document.getElementById("title-header");
+            const mainTitle = document.getElementById("main-title");
+            let displayExerciseType = exerciseType.slice(0,1).toUpperCase() + exerciseType.slice(1);
+            displayExerciseType = `Recommended ${displayExerciseType} Exercises`;
+            titleHeader.innerHTML = displayExerciseType;
+            mainTitle.innerHTML = displayExerciseType;
+
 
             runApp(user, exerciseType)
         } catch (error) {
@@ -37,8 +45,14 @@ function runApp (user, type) {
                 }
             })
 
-            // Insert sortedWorkouts info onto page.
-            createPageNumbers(sortedWorkouts, userInfo);
+            if(sortedWorkouts.length == 0) {
+                document.getElementsByClassName("no-results-found").forEach( element => {
+                    element.style.display = "block";
+                })
+            } else {
+                // Insert sortedWorkouts info onto page.
+                createPageNumbers(sortedWorkouts, userInfo);
+            }
 
         }
     )
