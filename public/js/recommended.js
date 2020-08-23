@@ -43,6 +43,7 @@ function runApp (user, type) {
                 workouts.forEach( workout => {
                     if ( checkWorkout(userInfo, workout, type) ) {
                         sortedWorkouts.push(workout);
+                        console.log(sortedWorkouts)
                     }
                 })
 
