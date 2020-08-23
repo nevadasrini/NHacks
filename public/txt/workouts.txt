@@ -1,11 +1,11 @@
-$Name of workout,Type,Intensity,Parts of body array,Recommended reps array,Equipment needed,Space,Time needed
+$Name of workout,Type,Intensity,Parts of body array,Recommended reps array,Equipment needed,Space,Time needed,image
 
-NEWpush-ups,upper body,moderate,10:15:20,none,none,0
+NEWpush-ups,upper body,moderate,10:15:20,none,none,0,image
 
-NEWsit-ups,core,moderate,10:15:20,none,none,0
+NEWsit-ups,core,moderate,10:15:20,none,none,0,image
 
-NEWrunning,cardio,moderate,30:60:90,none,outdoors,1
+NEWrunning,cardio,moderate,30:60:90,none,outdoors,1,image
 
-NEWtreadmill,cardio,moderate,30:60:90,treadmill,indoors,1
+NEWtreadmill,cardio,moderate,30:60:90,treadmill,indoors,1,image
 
-NEWsquats,lower body,moderate,10:15:20,none,none,0
+NEWsquats,lower body,moderate,10:15:20,none,none,0,image
