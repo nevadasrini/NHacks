@@ -33,7 +33,7 @@ NEWPull-ups,upper-body,intense,5:7:10,pull-up bar,none,0,pull-ups.jpg
 
 NEWModified push-up,upper-body,easy,10:15:20,none,none,0,modified.jpeg
 
-NEWMountain climbers,upper-body,moderate,0.5:1:1.5,none,none,0,mountain.jpg
+NEWMountain climbers,cardio,moderate,0.5:1.0:1.5,none,none,0,mountain.jpg
 
 NEWLeg Lifts,core,moderate,0.5:1:1.5,none,none,0,legLift.png
 
