@@ -259,6 +259,17 @@ footer{
 
 #schedule-wrapper table tr td{
     text-align: center;
+
+}
+
+#schedule-wrapper table tr td ul li{
+    color: purple;
+    list-style: none;
+}
+
+#schedule-wrapper table tr td ul{
+    text-align: center;
+  
 }
 
 .selector-label {
