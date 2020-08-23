@@ -4,13 +4,17 @@
 // Task Description: Handles user authentication (log in, sign up, log out) and tracks user auth status
 
 // listen for auth status changes and logs them to the console
+let notSwitched = true;
 auth.onAuthStateChanged(user => {
     if (user) {
         if(document.location.href == "index.html")  document.location.href = "workout.html";
         console.log('user logged in: ', user)
         setupUI(user);
     } else {
-        if(document.location.href != "index.html")    document.location.href = "index.html";
+        if(notSwitched && document.location.href != "index.html"){
+            notSwitched = false;
+            document.location.href = "index.html";
+        }
         setupUI();
         console.log('user logged out');
     }
