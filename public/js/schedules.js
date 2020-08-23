@@ -340,6 +340,7 @@ for(let i = 0; i<days.length;i++){
     else{
         var x = document.createElement("li");
         x.innerText = "Rest";
+        x.classList.add("rest");
         childList.appendChild(x);
         
     }

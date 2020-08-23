@@ -275,6 +275,11 @@ h5{
     font-size: large;
 }
 
+#schedule-wrapper table tr td ul li.rest{
+    color: grey;
+    font-size: large;
+}
+
 #schedule-wrapper table tr td ul{
     text-align: center;
 }
