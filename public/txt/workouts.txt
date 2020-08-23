@@ -1,11 +1,19 @@
-$Name of workout,Type,Intensity,Parts of body array,Recommended reps array,Equipment needed,Space,Time needed,image
+Name of workout,Type,Intensity,Recommended reps array,Equipment needed,Space,Time needed,image
 
-NEWpush-ups,upper body,moderate,10:15:20,none,none,0,image
+NEWPush-ups,upper body,moderate,10:15:20,none,none,0,push-up.webp
 
-NEWsit-ups,core,moderate,10:15:20,none,none,0,image
+NEWSit-ups,core,moderate,10:15:20,none,none,0,sit-up.jpeg
 
-NEWrunning,cardio,moderate,30:60:90,none,outdoors,1,image
+NEWRunning,cardio,moderate,30:60:90,none,outdoors,2,running.webp
 
-NEWtreadmill,cardio,moderate,30:60:90,treadmill,indoors,1,image
+NEWTreadmill running,cardio,moderate,30:60:90,treadmill,indoors,1,treadmill.jpg
 
-NEWsquats,lower body,moderate,10:15:20,none,none,0,image
+NEWSquats,lower body,moderate,10:15:20,none,none,0,squats.jpeg
+
+NEWBurpees,upper body,intense,10:20:30,none,none,0,burpees.jpeg
+
+NEWJump-rope,cardio,moderate,5:10:15,jump-rope,none,1,jump-rope.jpg
+
+NEWRunning the stairs,cardio,intense,10:20:30,stairs:stair-climber,indoors,2,running-stairs.jpg
+
+NEWWeight-lifting,upper-body,moderate,15:25:35,weights,none,0,weight-lifting.jpg
