@@ -1,5 +1,4 @@
 // listen for auth status changes and logs them to the console
-let notSwitched = true;
 auth.onAuthStateChanged(user => {
     if (user) {
         if(document.location.href.includes("index.html"))  document.location.href = "workout.html";

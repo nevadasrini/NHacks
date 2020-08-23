@@ -1,5 +1,6 @@
 
-const fs = require('fs') 
+
+
 
 
 auth.onAuthStateChanged(user => {
@@ -36,23 +37,27 @@ function runApp (user, type) {
     getUserInfo(user.uid).then(
         userInfo => {
             
-            let workouts = parseWorkouts("txt/workouts.txt");
+                parseWorkouts("txt/workouts.txt").then( workouts => {
 
-            let sortedWorkouts = [];
-            workouts.forEach( workout => {
-                if ( checkWorkout(userInfo, workout, type) ) {
-                    sortedWorkouts.push(workout);
-                }
-            })
+                    let sortedWorkouts = [];
+                    workouts.forEach( workout => {
+                        if ( checkWorkout(userInfo, workout, type) ) {
+                            sortedWorkouts.push(workout);
+                        }
+                    })
 
-            if(sortedWorkouts.length == 0) {
-                document.getElementsByClassName("no-results-found").forEach( element => {
-                    element.style.display = "block";
+                    if(sortedWorkouts.length == 0) {
+                        document.getElementsByClassName("no-results-found").forEach( element => {
+                            element.style.display = "block";
+                        })
+                    } else {
+                        // Insert sortedWorkouts info onto page.
+                        createPageNumbers(sortedWorkouts, userInfo);
+                    }
+
                 })
-            } else {
-                // Insert sortedWorkouts info onto page.
-                createPageNumbers(sortedWorkouts, userInfo);
-            }
+
+                
 
         }
     )
@@ -62,27 +67,24 @@ function runApp (user, type) {
 function parseWorkouts(textFileName) {
     const re = /NEW([^,]+),([^,]+),([^,]+),([^,]+),([^,]*),([^,]*),([^,]+),([^,]+)/g
 
-    fs.readFile(textFileName, (err, data) => { 
-        if (err) throw err; 
-      
-        let result;
-        let returnArray = [];
-        while ((result = re.exec(data)) !== null ) {
-            returnArray.push(
-                {
-                    name: result[0],
-                    type: result[1],
-                    intensity: result[2],
-                    duration: result[3],
-                    equipment: result[4],
-                    space: result[5],
-                    time: result[6],
-                    imageRef: result[7]
-                }
-            )
-        }
-        return returnArray;
-    }) 
+    let returnArray = [];
+
+    let result;
+    while ((result = re.exec(data)) !== null ) {
+        returnArray.push(
+            {
+                name: result[0],
+                type: result[1],
+                intensity: result[2],
+                duration: result[3],
+                equipment: result[4],
+                space: result[5],
+                time: result[6],
+                imageRef: result[7]
+            }
+        )
+    }
+    return returnArray;
 }
 
 function checkWorkout (user, workout, type) {

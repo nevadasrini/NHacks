@@ -1,4 +1,7 @@
-Name of workout,Type,Intensity,Recommended reps array,Equipment needed,Space,Time needed,image
+
+// Name of workout,Type,Intensity,Recommended reps array,Equipment needed,Space,Time needed,image
+
+const data = `
 
 NEWPush-ups,upper body,moderate,10:15:20,none,none,0,push-up.webp
 
@@ -49,3 +52,5 @@ NEWWalking,cardio,easy,30:60:90,none,none,2,walking.jpg
 NEWShadowboxing,cardio,moderate,1:2:3,none,none,0,shadowboxing.jpg
 
 NEWBoxing,cardio,intense,1:2:3,punching gloves and bag,indoors,0,boxing.jpg
+
+`;
