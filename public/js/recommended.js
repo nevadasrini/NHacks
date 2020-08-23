@@ -66,40 +66,51 @@ function parseWorkouts(textFileName) {
 
     let result;
     while ((result = re.exec(data)) !== null ) {
+        console.log(result);
         returnArray.push(
             {
-                name: result[0],
-                type: result[1],
-                intensity: result[2],
-                duration: result[3],
-                equipment: result[4],
-                space: result[5],
-                time: result[6],
-                imageRef: result[7]
+                name: result[1],
+                type: result[2],
+                intensity: result[3],
+                duration: result[4],
+                equipment: result[5],
+                space: result[6],
+                time: result[7],
+                imageRef: result[8]
             }
         )
     }
-    console.log(returnArray);
+    
     return returnArray;
 }
 
 function checkWorkout (user, workout, type) {
+    console.log("NICE");
+    console.log(type);
+    console.log(workout.type);
 
-    if (type == workout.type && parseInt(user.time) >= parseInt(workout.time)){
+    console.log(currentUserData.time);
+    console.log(workout.time);
+    
+    if (type == workout.type && parseInt(currentUserData.time) >= parseInt(workout.time)){
+        console.log("NIttttCE");
         let equipMatch = false;
         let spaceMatch = false;
-        user.equipment.forEach( equip => {
+        currentUserData.equipment.forEach( equip => {
+            console.log("equip");
+            console.log(workout.equipment.split(":"));
             if (equip in workout.equipment.split(":")){
                 equipMatch = true;
             }
         })
-        user.space.forEach( space => {
+        currentUserData.space.forEach( space => {
             if (space in workout.space.split(":")){
                 spaceMatch = true;
             }
         })
 
         if ((equipMatch || workout.equipment == "none") && (spaceMatch || workout.space == "none")) {
+            console.log("SUPER");
             return true;
         }
     }
@@ -108,7 +119,7 @@ function checkWorkout (user, workout, type) {
 
 function createPageNumbers(sortedWorkouts, userInfo){
     const pager = document.getElementById("pagination");
-    for (i = 0 ; i < ceil(sortedWorkouts.length / 4) ; i++)
+    for (let i = 0 ; i < Math.ceil(sortedWorkouts.length / 4) ; i++)
     {
         let pageLink = document.createElement("a");
         pageLink.href = "#";
@@ -125,12 +136,13 @@ function createPageNumbers(sortedWorkouts, userInfo){
         pager.appendChild(pageLink)
     }
 
-    goToPage(sortedWorkouts, userInfo, 0);
+    goToPage(sortedWorkouts, userInfo, 1);
 }
 
 function goToPage(sortedWorkouts, userInfo, page){
     const pager = document.getElementById("pagination");
     const pagerChildren = pager.childNodes;
+    console.log(pagerChildren);
     pagerChildren[page].classList.remove("w3-hover-black");
     pagerChildren[page].classList.add("w3-black");
 
