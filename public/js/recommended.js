@@ -112,8 +112,8 @@ function createPageNumbers(sortedWorkouts, userInfo){
     {
         let pageLink = document.createElement("a");
         pageLink.href = "#";
-        pageLink.addEventListener("click", function () {
-            preventDefault();
+        pageLink.addEventListener("click", function (event) {
+            event.preventDefault();
             goToPage(sortedWorkouts, userInfo, i);
         });
         pageLink.innerHTML = String(i + 1);
