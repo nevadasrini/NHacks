@@ -1,7 +1,7 @@
 
-const data = `
+// Name of workout,Type,Intensity,Recommended reps array,Equipment needed,Space,Time needed,image
 
-Name of workout,Type,Intensity,Recommended reps array,Equipment needed,Space,Time needed,image
+const data = `
 
 NEWPush-ups,upper body,moderate,10:15:20,none,none,0,push-up.webp
 
