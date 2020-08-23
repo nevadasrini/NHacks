@@ -59,7 +59,7 @@
     <p>Create an auto-generated schedule as a starting point for your fitness journey!</p>
     <a href="#" data-target="modal-schedule" class="nv-btn nv-btn-full modal-trigger">Let's Do It!</a>
   </div>
-  <div id = "made">
+  <div id = "made" class="hide">
     <table id = "schedule">
       <thead>
         <tr id = "table-head">
@@ -294,7 +294,24 @@
           </label>
         </p>
         <br><br>
-      <button class="btn lavender darken-2 z-depth-0">Submit</button>
+        <center><h6>What type of workouts do you want?</h6></center>
+        <br>
+        <p>
+          <label>
+            <input id="Strength" class="with-gap" name="work" type="radio"/>
+            <span class="selector-label">Strength</span>
+          </label>
+          <label>
+            <input id="Cardio" class="with-gap" name="work" type="radio"/>
+            <span class="selector-label">Cardio</span>
+          </label>
+          <label>
+            <input id="Both" class="with-gap" name="work" type="radio"/>
+            <span class="selector-label">Both</span>
+          </label>
+        </p>
+        <br><br>
+      <button class="btn lavender darken-2 z-depth-0 schedule-button" type="button" >Submit</button>
     </form>
   </div>
 </div>

@@ -20,13 +20,13 @@ class Day{
     }
 }
 
-let days = [true, false, true, false, false, true, false]; //representative of Mon Tues Weds Thurs Fri Sat Sun
+let days = [false, false, false, false, false, false, false]; //representative of Mon Tues Weds Thurs Fri Sat Sun
 let dayCardio = [false, false, false, false, false, false, false];
 let dayStrength = [false, false, false, false, false, false, false];
 let dayWorkouts =[null,null,null,null,null,null,null];
 
-let cardio = true;
-let strength = true;
+let cardio = false;
+let strength = false;
 let startDay = -1;
 let numRest = 0;
 let numWork = 0;
@@ -36,10 +36,51 @@ let group = [0,0];
 auth.onAuthStateChanged(user => {
     if (user) {
         console.log('poop logged in: ', user)
-        initialize();
+        
     } else {
         console.log('user logged out')
     }
+})
+
+const scheduleForm = document.querySelector('.schedule-button');
+const scheduleModal = document.querySelector('#modal-schedule')
+scheduleForm.addEventListener('click', (e) => {
+    // prevent refresh (losing info)
+    e.preventDefault();
+
+    // get user info
+    days = [false, false, false, false, false, false, false]; //representative of Mon Tues Weds Thurs Fri Sat Sun
+    dayCardio = [false, false, false, false, false, false, false];
+    dayStrength = [false, false, false, false, false, false, false];
+    dayWorkouts =[null,null,null,null,null,null,null];
+
+    cardio = false;
+    strength = false;
+    numRest = 0;
+    numWork = 0;
+
+    const ele3 = document.getElementsByName('days');
+    for(i = 0 ; i < ele3.length ; i++) {
+        if(ele3[i].checked) days[i] = true;
+    }
+
+    const ele4 = document.getElementsByName('work');
+    if(ele4[0].checked){
+        strength = true;
+    } 
+    else if(ele4[1].checked){
+        cardio = true;
+    }
+    else{
+        strength = true;
+        cardio= true;
+    }
+
+    console.group(scheduleModal);
+    M.Modal.getInstance(scheduleModal).close();
+    
+    initialize();
+    document.querySelector("#made").classList.remove("hide");
 })
 
 
@@ -61,6 +102,7 @@ if((cardio && !strength) || (!cardio && strength)){
     if (numWork >=4){
         findBeginner()
     }
+    console.log(days);
 
     for(let i =0; i<days.length; i++){
         if (days[i]) {
@@ -69,7 +111,7 @@ if((cardio && !strength) || (!cardio && strength)){
         }
     }
     
-    console.log(days);
+    
     console.log(dayCardio);
     console.log(dayStrength);
 }
