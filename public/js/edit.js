@@ -54,9 +54,39 @@ form.addEventListener('submit', (e) =>{
 function updateAccount(user){
     if (user)
     {   
+        const ele = document.getElementsByName('edit-level');
+        let level = "";
+        for(i = 0; i < ele.length; i++) { 
+            if(ele[i].checked) level = ele[i].value;
+        }
+
+        const ele1 = document.getElementsByName('edit-time');
+        let time = "";
+        for(i = 0 ; i < ele1.length ; i++) {
+            if(ele1[i].checked) time = ele1[i].value;
+        }
+
+        const ele2 = document.getElementsByName('edit-space');
+        let space = [];
+        for(i = 0 ; i < ele2.length ; i++) {
+            if(ele2[i].checked) space.push(ele2[i].value);
+        }
+
+        const ele3 = document.getElementsByName('edit-equipment');
+        let equipment = [];
+        for(i = 0 ; i < ele3.length ; i++) {
+            if(ele3[i].checked) equipment.push(ele3[i].value);
+        }
+
         db.collection('users').doc(user.email).set({
+            
             name: form.name.value,
             email: user.email,
+            level: level,
+            time: time,
+            space: space,
+            equipment: equipment
+
         }).then( function() { document.location.href = "index.html" })
     }
     else {
