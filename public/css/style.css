@@ -237,3 +237,6 @@ footer{
     margin-bottom: none;
 }
 
+.selector-label {
+    padding-right: 18px;
+}
