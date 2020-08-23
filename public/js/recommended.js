@@ -68,7 +68,6 @@ function parseWorkouts(textFileName) {
     const re = /NEW([^,]+),([^,]+),([^,]+),([^,]+),([^,]*),([^,]*),([^,]+),([^,]+)/g
 
     let returnArray = [];
-    let data = "";
 
     let result;
     while ((result = re.exec(data)) !== null ) {
