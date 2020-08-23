@@ -8,6 +8,7 @@
     background: transparent;
     scroll-behavior: smooth;
     font-family: 'Baloo Da 2';
+    box-sizing: border-box;
 }
 
 html,body
@@ -172,4 +173,33 @@ h3{
 
 .logged-in{
     float:right;
+}
+
+.banner-fit{
+    height: 30vh;
+    width: 100%;
+    background-color: #000000;
+}
+
+.about-fit{
+    height: 70vh;
+    width: 100%;
+    background-color: #141414;
+}
+
+.about-box{
+    height: 30vh;
+    width: 33%;
+    float: left;
+    text-align: center;
+    align-content: center;
+    color: #f39c12;
+}
+
+.about-box h6{
+    font-size: 1.5rem;
+}
+
+.about-icon{
+    margin-top: 8%;
 }
