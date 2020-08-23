@@ -240,3 +240,6 @@ footer{
 #schedule-wrapper{
     background-color: (0, 0, 0, 0.31)
 }
+.selector-label {
+    padding-right: 18px;
+}

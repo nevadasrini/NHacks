@@ -94,26 +94,98 @@
                   <input type="password" id="signup-password" required />
                   <label for="signup-password">Choose password</label>
                 </div>
-                <div class="input-field" id="signup-level">
-                  <input type="radio" name="signup-level" id="beginner" value="0" required />
-                  <label for="beginner" >Beginner</label>
-                  <input type="radio" name="signup-level" id="intermediate" value="1" required />
-                  <label for="intermediate" >Intermediate</label>
-                  <input type="radio" name="signup-level" id="advanced" value="2" required />
-                  <label for="advanced" >Advanced</label>
-                  
-                  <label for="signup-level">Level</label>
-                </div>
-                <div class="input-field" id="signup-time">
-                  <input type="radio" name="signup-time" id="little" value="0">
-                  <label for="little">A little</label>
-                  <input type="radio" name="signup-time" id="average" value="1">
-                  <label for="average">An average amount</label>
-                  <input type="radio" name="signup-time" id="lot" value="2">
-                  <label for="lot">A lot</label>
-
-                  <label for="signup-time">How much do you exercise in a day?</label>
-                </div>
+                <label>Intensity Level</label>
+                <p>
+                  <label>
+                    <input id="beginner" class="with-gap" name="position" type="radio" value="0"/>
+                    <span class="selector-label">Beginner</span>
+                  </label>
+                  <label>
+                    <input id="intermediate" class="with-gap" name="position" type="radio" value="1"/>
+                    <span class="selector-label">Intermediate</span>
+                  </label>
+                  <label>
+                    <input id="advanced" class="with-gap" name="position" type="radio" value="2"/>
+                    <span class="selector-label">Advanced</span>
+                  </label>
+                </p>
+                <br/>
+                <label>How much do you excercise in a day?</label>
+                <p>
+                  <label>
+                    <input id="little" class="with-gap" name="position" type="radio" value="0"/>
+                    <span class="selector-label">A Little</span>
+                  </label>
+                  <label>
+                    <input id="average" class="with-gap" name="position" type="radio" value="1"/>
+                    <span class="selector-label">An average amount</span>
+                  </label>
+                  <label>
+                    <input id="lot" class="with-gap" name="position" type="radio" value="2"/>
+                    <span class="selector-label">A Lot</span>
+                  </label>
+                </p>
+                <br>
+                <label>Where do you prefer to exercise?</label>
+                <p>
+                  <label>
+                    <input id="inside" class="with-gap" name="space" type="checkbox"/>
+                    <span class="selector-label">Inside</span>
+                  </label>
+                  <label>
+                    <input id="outside" class="with-gap" name="space" type="checkbox"/>
+                    <span class="selector-label">Outside</span>
+                  </label>
+                  <label>
+                    <input id="gym" class="with-gap" name="space" type="checkbox"/>
+                    <span class="selector-label">In a gym</span>
+                  </label>
+                </p>
+                <br>
+                <label>What equipment do you have on hand?</label>
+                <p>
+                  <label>
+                    <input id="treadmill" class="with-gap" name="equipment" type="checkbox"/>
+                    <span class="selector-label">Treadmill</span>
+                  </label>
+                  <label>
+                    <input id="Jump-rope" class="with-gap" name="equipment" type="checkbox"/>
+                    <span class="selector-label">Jump-rope</span>
+                  </label>
+                  <label>
+                    <input id="stairs" class="with-gap" name="equipment" type="checkbox"/>
+                    <span class="selector-label">Stairs</span>
+                  </label>
+                  <label>
+                    <input id="stair-climber" class="with-gap" name="equipment" type="checkbox"/>
+                    <span class="selector-label">Stair-climber</span>
+                  </label>
+                  <label>
+                    <input id="weights" class="with-gap" name="equipment" type="checkbox"/>
+                    <span class="selector-label">Weights</span>
+                  </label>
+                  <label>
+                    <input id="pull-up-bar" class="with-gap" name="equipment" type="checkbox"/>
+                    <span class="selector-label">Pull-up bar</span>
+                  </label>
+                  <label>
+                    <input id="pool" class="with-gap" name="equipment" type="checkbox"/>
+                    <span class="selector-label">Pool</span>
+                  </label>
+                  <label>
+                    <input id="ocean" class="with-gap" name="equipment" type="checkbox"/>
+                    <span class="selector-label">Ocean</span>
+                  </label>
+                  <label>
+                    <input id="bicycle" class="with-gap" name="equipment" type="checkbox"/>
+                    <span class="selector-label">Bicycle</span>
+                  </label>
+                  <label>
+                    <input id="punching-equipment" class="with-gap" name="equipment" type="checkbox"/>
+                    <span class="selector-label">Punching gloves and bag</span>
+                  </label>
+                </p>
+                <br/><br/>
                 <button class="btn lavender darken-2 z-depth-0">Sign up</button>
               </form>
             </div>
