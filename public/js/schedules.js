@@ -8,16 +8,28 @@ class Day{
         this.cardio = cardio;
         this.strength = strength;
         this.time = time;
-        this.workouts = [];
+        this.workoutsCardio = [];
+        this.workoutsUpper = [];
+        this.workoutsCore = [];
+        this.workoutsLower = [];
         this.index = index;
     }
-
+    
     get joint(){
-        if (cardio&&strength){
+        if (this.cardio&&this.strength){
             return true;
         }else{
             return false;
         }
+    }
+
+    get workoutsStrength(){
+        var x = this.workoutsCardio.concat(this.workoutsUpper);
+        return x.concat(workoutsLower);
+    }
+
+    get workouts(){
+        return this.workoutsStrength().concat(this.workoutsCardio);
     }
 }
 
@@ -157,7 +169,6 @@ for(let i = 0; i<days.length;i++){
     if(days[i]){
         dayWorkouts[i].cardio = dayCardio[i];
         dayWorkouts[i].strength = dayStrength[i];
-        dayWorkouts[i].workouts =insertWorkouts("cardio");
         console.log(dayWorkouts[i]);
         
 
@@ -165,12 +176,15 @@ for(let i = 0; i<days.length;i++){
             var x = document.createElement("li");
             x.innerText = "Strength";
             childList.appendChild(x);
-            console.log(1);
+            dayWorkouts[i].workoutsUpper = insertWorkouts("upper-body");
+            dayWorkouts[i].workoutsLower = insertWorkouts("lower-body");
+            dayWorkouts[i].workoutsCore = insertWorkouts("core");
         }
         if(dayCardio[i]){
             var x = document.createElement("li");
             x.innerText = "Cardio";
             childList.appendChild(x);
+            dayWorkouts[i].workoutsCardio = insertWorkouts("cardio");
             
         }
         
@@ -303,7 +317,6 @@ function insertWorkouts(type){
                         sortedWorkouts.push(workout);
                     }
                 })
-                console.log(sortedWorkouts);
                 return sortedWorkouts;
                 
 }

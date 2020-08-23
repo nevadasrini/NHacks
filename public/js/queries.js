@@ -4,12 +4,14 @@ var currentUserData = null;
 
 auth.onAuthStateChanged(user => {
     if (user) {
+        console.log(user.uid);
+        if (currentUser == null){
         getUser(user.uid).then(doc=>{
             currentUser = doc;
             currentUserData = doc.data();
         })
         .catch(error=>console.error(error));
-        
+    }
     } 
     else{
         currentUser = null;

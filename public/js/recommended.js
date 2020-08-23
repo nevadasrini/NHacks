@@ -43,6 +43,7 @@ function runApp (user, type) {
                 workouts.forEach( workout => {
                     if ( checkWorkout(userInfo, workout, type) ) {
                         sortedWorkouts.push(workout);
+                        console.log(sortedWorkouts)
                     }
                 })
 
@@ -79,27 +80,30 @@ function parseWorkouts() {
             }
         )
     }
-    console.log(returnArray);
+    
     return returnArray;
 }
 
 function checkWorkout (user, workout, type) {
+    
+    if (type == workout.type && parseInt(currentUserData.time) >= parseInt(workout.time)){
 
-    if (type == workout.type && parseInt(user.time) >= parseInt(workout.time)){
         let equipMatch = false;
         let spaceMatch = false;
-        user.equipment.forEach( equip => {
+        currentUserData.equipment.forEach( equip => {
+
             if (equip in workout.equipment.split(":")){
                 equipMatch = true;
             }
         })
-        user.space.forEach( space => {
+        currentUserData.space.forEach( space => {
             if (space in workout.space.split(":")){
                 spaceMatch = true;
             }
         })
 
         if ((equipMatch || workout.equipment == "none") && (spaceMatch || workout.space == "none")) {
+            console.log("SUPER");
             return true;
         }
     }
@@ -108,12 +112,13 @@ function checkWorkout (user, workout, type) {
 
 function createPageNumbers(sortedWorkouts, userInfo){
     const pager = document.getElementById("pagination");
-    for (i = 0 ; i < ceil(sortedWorkouts.length / 4) ; i++)
+    pager.innerHTML = "";
+    for (let i = 0 ; i < Math.ceil(sortedWorkouts.length / 4) ; i++)
     {
         let pageLink = document.createElement("a");
         pageLink.href = "#";
-        pageLink.addEventListener("click", function () {
-            preventDefault();
+        pageLink.addEventListener("click", function (event) {
+            event.preventDefault();
             goToPage(sortedWorkouts, userInfo, i);
         });
         pageLink.innerHTML = String(i + 1);
@@ -131,6 +136,9 @@ function createPageNumbers(sortedWorkouts, userInfo){
 function goToPage(sortedWorkouts, userInfo, page){
     const pager = document.getElementById("pagination");
     const pagerChildren = pager.childNodes;
+
+    console.log(pagerChildren);
+
     pagerChildren[page].classList.remove("w3-hover-black");
     pagerChildren[page].classList.add("w3-black");
 
@@ -145,10 +153,13 @@ function insertWorkoutsOntoPage(workouts, userInfo, page) {
 
     const container = document.getElementById("workout-card-container");
 
-    let start = (page - 1) * 4;
+    let start = (page) * 4;
     let end = start + 4;
     if (end > workouts.length) end = workouts.length;
-
+    console.log(start);
+    console.log(end);
+    console.log(workouts);
+    console.log(workouts.slice(start, end));
 
     workouts.slice(start, end).forEach(workout => {
         
@@ -171,15 +182,15 @@ function insertWorkoutsOntoPage(workouts, userInfo, page) {
         container.innerHTML += `
         <div class="card" style="width:350px;margin:10px">
         <div class="card-image waves-effect waves-block waves-light" >
-        <img class="activator" src="` + workout.imageRef + `" height="200px">
+        <img class="activator" src="images/` + String(workout.imageRef) + `" height="200px">
         </div>
         <div class="card-content">
-        <span class="card-title activator grey-text text-darken-4">`+ workout.name +`<i class="material-icons right">more_vert</i></span>
-        <p><span>` + displayedDuration + `</span></p>
+        <span class="card-title activator grey-text text-darken-4">`+ String(workout.name) +`<i class="material-icons right">more_vert</i></span>
+        <p><span>` + String(displayedDuration) + `</span></p>
         </div>
         <div class="card-reveal">
-        <span class="card-title grey-text text-darken-4">`+ workout.name + `<i class="material-icons right">close</i></span>
-        <p>` + additionalInformation + `</p>
+        <span class="card-title grey-text text-darken-4">`+ String(workout.name) + `<i class="material-icons right">close</i></span>
+        <p>` + String(additionalInformation) + `</p>
         </div>
         </div>
         `
