@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html>
-<title>Recommended Workouts</title>
+  <head>
+    <title>Recommended Workouts</title>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  </head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
@@ -13,50 +22,43 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif}
 </style>
 <body>
 
-<!-- Sidebar (hidden by default) -->
-<nav class="w3-sidebar w3-bar-block w3-card w3-top w3-xlarge w3-animate-left" style="display:none;z-index:2;width:10%;min-width:150px" id="mySidebar">
-  <a href="javascript:void(0)" onclick="w3_close()"
-  class="w3-bar-item w3-button black-text">Close Menu</a>
-  <a href="index.html" onclick="w3_close()" class="w3-bar-item w3-button black-text">Home</a>
-  <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button black-text">About</a>
-  <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button black-text">My Account</a>
-</nav>
+<!-- Header -->
 
-<!-- Top menu -->
-<div class="w3-top">
-  <div class="w3-white w3-xlarge" style="max-width:1200px;margin:auto">
-    <div class="w3-button w3-padding-16 w3-left" onclick="w3_open()">☰</div>
-    <div class="w3-right w3-padding-16">Mail</div>
-    <div class="w3-center w3-padding-16">Recommended Workouts</div>
-  </div>
-</div>
   
 <!-- !PAGE CONTENT! -->
-<div class="w3-main w3-content w3-padding" style="max-width:1200px;margin-top:100px">
+<div id="workout-card-container" class="w3-main w3-content w3-padding" style="max-width:1200px;margin-top:100px;display:flex;flex-wrap:wrap;justify-content:center;">
 
-  <!-- First Photo Grid-->
-  <div class="w3-row-padding w3-padding-16 w3-center" id="food">
-    <div class="w3-quarter">
-      <img src="images/upperBody.jpg" alt="Upper Body" style="height: 200px">
-      <h1>Upper Body</h1>
-      <p style="font-size: 20px">Great for getting that perfect posture, weight loss, and strength!</p>
+  
+  <div class="card" style="width:350px;margin:10px">
+    <div class="card-image waves-effect waves-block waves-light" >
+      <img class="activator" src="images/core.png" height="200px">
     </div>
-    <div class="w3-quarter">
-      <img src="images/lowerBody.png" alt="Lower Body" style="height: 200px">
-      <h1>Lower Body</h1>
-      <p style="font-size: 20px">Great for increasing stamina, balance, and agility!</p>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
+      <p><span>This is a link</span></p>
     </div>
-    <div class="w3-quarter">
-      <img src="images/cardio.png" alt="Cardio" style="height: 200px">
-      <h1>Cardio</h1>
-      <p style="font-size: 20px">Great for lowering blood pressure, reducing chronic pain, and strengthening your immune system!</p>
-    </div>
-    <div class="w3-quarter">
-      <img src="images/core.png" alt="Core" style="height: 200px; width: 250px">
-      <h1>Core</h1>
-      <p style="font-size: 20px">Great for improving stability and toning your abs!</p>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+      <p>Here is some more information about this product that is only revealed once clicked on.</p>
     </div>
   </div>
+
+  <div class="card" style="width:350px;margin:10px">
+    <div class="card-image waves-effect waves-block waves-light" >
+      <img class="activator" src="images/core.png" height="200px">
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
+      <p><a href="#">This is a link</a></p>
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+      <p>Here is some more information about this product that is only revealed once clicked on.</p>
+    </div>
+  </div>
+            
+
+
   </div>
   
  
@@ -73,58 +75,12 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif}
     </div>
   </div>
   
-  <hr id="about">
-
-  <!-- About Section -->
-  <div class="w3-container w3-padding-32 w3-center">  
-    <h3>About Me, The Food Man</h3><br>
-    <img src="/w3images/chef.jpg" alt="Me" class="w3-image" style="display:block;margin:auto" width="800" height="533">
-    <div class="w3-padding-32">
-      <h4><b>I am Who I Am!</b></h4>
-      <h6><i>With Passion For Real, Good Food</i></h6>
-      <p>Just me, myself and I, exploring the universe of unknownment. I have a heart of love and an interest of lorem ipsum and mauris neque quam blog. I want to share my world with you. Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla. Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
-    </div>
-  </div>
-  <hr>
+  
   
   <!-- Footer -->
   <footer class="w3-row-padding w3-padding-32">
-    <div class="w3-third">
-      <h3>FOOTER</h3>
-      <p>Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
-      <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
-    </div>
-  
-    <div class="w3-third">
-      <h3>BLOG POSTS</h3>
-      <ul class="w3-ul w3-hoverable">
-        <li class="w3-padding-16">
-          <img src="/w3images/workshop.jpg" class="w3-left w3-margin-right" style="width:50px">
-          <span class="w3-large">Lorem</span><br>
-          <span>Sed mattis nunc</span>
-        </li>
-        <li class="w3-padding-16">
-          <img src="/w3images/gondol.jpg" class="w3-left w3-margin-right" style="width:50px">
-          <span class="w3-large">Ipsum</span><br>
-          <span>Praes tinci sed</span>
-        </li> 
-      </ul>
-    </div>
-
-    <div class="w3-third w3-serif">
-      <h3>POPULAR TAGS</h3>
-      <p>
-        <span class="w3-tag w3-black w3-margin-bottom">Travel</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">New York</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Dinner</span>
-        <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Salmon</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">France</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Drinks</span>
-        <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Ideas</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Flavors</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Cuisine</span>
-        <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Chicken</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Dressing</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Fried</span>
-        <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Fish</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Duck</span>
-      </p>
-    </div>
+    
   </footer>
-
-<!-- End page content -->
-</div>
 
 <script>
 // Script to open and close sidebar
@@ -139,17 +95,29 @@ function w3_close() {
 
 <script src="js/materialize.js"></script>
 <!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="/__/firebase/7.19.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-auth.js"></script>
 
-<!-- TODO: Add SDKs for Firebase products that you want to use
-    https://firebase.google.com/docs/web/setup#available-libraries -->
-<script src="/__/firebase/7.19.0/firebase-analytics.js"></script>
-<!-- Add Firebase products that you want to use -->
-<script src="/__/firebase/7.19.0/firebase-auth.js"></script>
-<script src="/__/firebase/7.19.0/firebase-firestore.js"></script>
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyAhCfldT_zbbAK8Jl6usEtYbC6rEhnbTE8",
+    authDomain: "nhacks-671d0.firebaseapp.com",
+    databaseURL: "https://nhacks-671d0.firebaseio.com",
+    projectId: "nhacks-671d0",
+    storageBucket: "nhacks-671d0.appspot.com",
+    messagingSenderId: "658368861026",
+    appId: "1:658368861026:web:1a5f4bda10c4b0be3cd23b",
+    measurementId: "G-5GNWK6YYMX"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
 
-<!-- Initialize Firebase -->
-<script src="/__/firebase/init.js"></script>
+    // make auth and firestore references
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+</script>
 
 <script src="js/queries.js"></script>
 
