@@ -41,7 +41,7 @@ function runApp (user, type) {
 
                 let sortedWorkouts = [];
                 workouts.forEach( workout => {
-                    if ( checkWorkout(userInfo, workout, type) ) {
+                    if ( checkWorkout(workout, type) ) {
                         sortedWorkouts.push(workout);
                         console.log(sortedWorkouts)
                     }
@@ -84,20 +84,25 @@ function parseWorkouts() {
     return returnArray;
 }
 
-function checkWorkout (user, workout, type) {
+function checkWorkout (workout, type) {
     
+    if(workout.name == "Running") {
+        console.log(type == workout.type);
+        console.log(parseInt(currentUserData.time) >= parseInt(workout.time));
+
+    }
+
     if (type == workout.type && parseInt(currentUserData.time) >= parseInt(workout.time)){
 
         let equipMatch = false;
         let spaceMatch = false;
         currentUserData.equipment.forEach( equip => {
-
-            if (equip in workout.equipment.split(":")){
+            if (workout.equipment.split(":").includes(equip)){
                 equipMatch = true;
             }
         })
         currentUserData.space.forEach( space => {
-            if (space in workout.space.split(":")){
+            if (workout.space.split(":").includes(space)){
                 spaceMatch = true;
             }
         })
