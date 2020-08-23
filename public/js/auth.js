@@ -67,6 +67,11 @@ signupForm.addEventListener('submit', (e) => {
         signupForm.reset();
     })
     
+    auth.onAuthStateChanged(user => {
+        db.collection('users').doc(docID).update({
+            userID: user.uid || "none"
+        })
+    })
 })
 
 // log out

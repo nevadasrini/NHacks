@@ -27,7 +27,7 @@ function getUsers(){ /*in future want to use user ID*/
 function getUser(UserID){ /*in future want to use user ID*/
     return new Promise((resolve,reject)=>{
 
-        users.where("UserID","==",UserID).get().then(
+        users.where("userid","==",UserID).get().then(
         function(snapshot) {
             let doc = snapshot.docs[0];
             if(doc && doc.exists) { 
@@ -45,7 +45,7 @@ function getUser(UserID){ /*in future want to use user ID*/
 function getUserInfo(UserID){ /*in future want to use user ID*/
     return new Promise((resolve,reject)=>{
 
-        users.where("UserID","==",UserID).get().then(
+        users.where("userid","==",UserID).get().then(
         function(snapshot) {
             let doc = snapshot.docs[0];
             if(doc && doc.exists) { 
