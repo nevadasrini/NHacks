@@ -1,5 +1,5 @@
 
-let data = `
+const data = `
 
 Name of workout,Type,Intensity,Recommended reps array,Equipment needed,Space,Time needed,image
 
