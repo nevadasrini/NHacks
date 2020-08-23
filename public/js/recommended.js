@@ -45,8 +45,14 @@ function runApp (user, type) {
                 }
             })
 
-            // Insert sortedWorkouts info onto page.
-            createPageNumbers(sortedWorkouts, userInfo);
+            if(sortedWorkouts.length == 0) {
+                document.getElementsByClassName("no-results-found").forEach( element => {
+                    element.style.display = "block";
+                })
+            } else {
+                // Insert sortedWorkouts info onto page.
+                createPageNumbers(sortedWorkouts, userInfo);
+            }
 
         }
     )

@@ -17,6 +17,7 @@
     <ul class="main-nav">
         <li><a href="index.html">Home</a></li>
         <li><a href="workout.html">Workout</a></li>
+        <li class="logged-in"><a href="workout.html">Edit Account</a></li>
         <li ><a href="monsters.html">About</a></li>
         <li ><a href="races.html">Resources</a></li>
         <li class="logged-out"><a href = "#" class="modal-trigger" data-target="modal-login">Log In</a></li>
@@ -30,22 +31,22 @@
   <!-- First Photo Grid-->
   <div class="w3-row-padding w3-padding-16 w3-center" id="food">
     <div class="w3-quarter">
-      <a href="recommended.html"> <img src="images/upperBody.jpg" alt="Upper Body" style="height: 200px"> </a>
+      <a href="recommended.html/?type=upper-body"> <img src="images/upperBody.jpg" alt="Upper Body" style="height: 200px"> </a>
       <h1>Upper Body</h1>
       <p style="font-size: 20px; color: #f39c12">Great for getting that perfect posture, weight loss, and strength!</p>
     </div>
     <div class="w3-quarter">
-      <a href="recommended.html"> <img src="images/lowerBody.png" alt="Lower Body" style="height: 200px"> </a>
+      <a href="recommended.html/?type=lower-body"> <img src="images/lowerBody.png" alt="Lower Body" style="height: 200px"> </a>
       <h1>Lower Body</h1>
       <p style="font-size: 20px; color: #f39c12">Great for increasing stamina, balance, and agility!</p>
     </div>
     <div class="w3-quarter">
-      <a href="recommended.html"> <img src="images/cardio.png" alt="Cardio" style="height: 200px"></a>
+      <a href="recommended.html/?type=cardio"> <img src="images/cardio.png" alt="Cardio" style="height: 200px"></a>
       <h1>Cardio</h1>
       <p style="font-size: 20px; color: #f39c12">Great for lowering blood pressure, reducing chronic pain, and strengthening your immune system!</p>
     </div>
     <div class="w3-quarter">
-      <a href="recommended.html"> <img src="images/core.png" alt="Core" style="height: 200px; width: 250px"></a>
+      <a href="recommended.html/?type=core"> <img src="images/core.png" alt="Core" style="height: 200px; width: 250px"></a>
       <h1>Core</h1>
       <p style="font-size: 20px; color: #f39c12">Great for improving stability and toning your abs!</p>
     </div>
@@ -59,7 +60,7 @@
     <p>Create an auto-generated schedule as a starting point for your fitness journey!</p>
     <a href="#" data-target="modal-schedule" class="nv-btn nv-btn-full modal-trigger">Let's Do It!</a>
   </div>
-  <div id = "made">
+  <div id = "made" class="hide">
     <table id = "schedule">
       <thead>
         <tr id = "table-head">
@@ -262,9 +263,9 @@
 <!-- SCHEDULE MODAL: pops up when button is clicked -->
 <div id="modal-schedule" class="modal">
   <div class="modal-content">
-    <center><h4>Just one thing</h4><br/></center>
+    <h4>Just one thing</h4><br/>
     <form id="schedule-form">
-        <center><h6>Which days can you workout?</h6></center>
+        <h6>Which days can you workout?</h6>
         <br>
         <p>
           <label>
@@ -297,7 +298,24 @@
           </label>
         </p>
         <br><br>
-      <button class="btn lavender darken-2 z-depth-0">Submit</button>
+        <h6>What type of workouts do you want?</h6>
+        <br>
+        <p>
+          <label>
+            <input id="Strength" class="with-gap" name="work" type="radio"/>
+            <span class="selector-label">Strength</span>
+          </label>
+          <label>
+            <input id="Cardio" class="with-gap" name="work" type="radio"/>
+            <span class="selector-label">Cardio</span>
+          </label>
+          <label>
+            <input id="Both" class="with-gap" name="work" type="radio"/>
+            <span class="selector-label">Both</span>
+          </label>
+        </p>
+        <br><br>
+      <button class="btn lavender darken-2 z-depth-0 schedule-button" type="button" >Submit</button>
     </form>
   </div>
 </div>
