@@ -20,7 +20,7 @@ class Day{
     }
 }
 
-var days = [true, false, true, true, false, true, true]; //representative of Mon Tues Weds Thurs Fri Sat Sun
+var days = [true, false, false, true, true, false, true]; //representative of Mon Tues Weds Thurs Fri Sat Sun
 var dayCardio = [false, false, false, false, false, false, false];
 var dayStrength = [false, false, false, false, false, false, false];
 var dayWorkouts =[null,null,null,null,null,null,null];
@@ -58,73 +58,48 @@ numRest = 7-numWork;
 
 if((cardio && !strength) || (!cardio && strength)){
 
-    if (numWork >=5){
-        for (let i = 0; i<5; i++){
-            let a = i;
-            let b = i+2;
-            let c = i+4;
+    if (numWork >=4){
 
-            const check = (a,b,c)=>{
-                if(days[a]&&days[b]&&days[c]){
-                    for (let k = 0; k<days.length; k++){
-                        if(k!=a&k!=b&&k!=c){
-                            setRestDay(k);
-                        }
+        if (!findBeginner()){
+            let start = -1;
+            let i = 0;
+            let run = true;
+
+            while (run){
+                b = i-1;
+
+                b = arrayWrapCheck(b, days);
+                console.log(!days[b] && days[i]);
+
+                if(!days[b] && days[i]){
+                    run = false;
+                    start = i;
+                    c = start + 2;
+                    c = arrayWrapCheck(c, days);
+
+                    if (days[c]){
+                        setRestDay(c);
                     }
-                    return true;
-                }else{
-                    return false;
+                    else if (days[arrayWrapCheck(c+1, days)]){
+                        setRestDay(arrayWrapCheck(c+1, days));
+                    }
+                    else if(start == days.length-1){
+                        setRestDay(0);
+                    }
+                    else {
+                        setRestDay(arrayWrapCheck(start+5, days));
+                    }
                 }
-            }
-            
-            if(b>=days.length){
-                b= b-days.length;
-            }
 
-            if(c>=days.length){
-                c= c-days.length;
-            }
-            console.log(`${a}${b}${c}`);
-            if (check(a,b,c)){
-                i=days.length;
-            }
-            else if(i>0&&i<3){
-                a = days.length-i;
-                b = a + 2;
-                c = a + 4;
-                
-                if(b>=days.length){
-                    b= b-days.length;
-                }
-    
-                if(c>=days.length){
-                    c= c-days.length;
-                }
-                console.log(`${a}${b}${c}`);
-                if (check(a,b,c)){
-                    i=days.length;
-                }
+                i++;
+                i = arrayWrapCheck(i, days);
             }
         }
+    }
+        
 
         /*
-        let start = -1;
-        let combo = 0;
-
-        if(days[0]&&days[days.length - 1]){
-            for (let j = days.length-1; j>=0; j--){
-                combo++;
-                if(!days[j-1]){
-                    start = j;
-                }
-            }
-            for (let i = 0; i<days.length; i++)
-                combo++;
-                if(!days[j+1]){
-                    i=days.length;
-                }
-            }
-        }
+        
 */
         /*for(let i = 0; i<days.length; i++){
             if (
@@ -167,20 +142,15 @@ if((cardio && !strength) || (!cardio && strength)){
                 else {dayStrength[i] = true}
             }
         }
-    }
-    else{
-        
-            for(let i =0; i<days.length; i++){
-                if (days[i]) {
-                    if (cardio) {dayCardio[i] = true}
-                    else {dayStrength[i] = true}
-                }
-            }
-        
-       
+    }*/
+    for(let i =0; i<days.length; i++){
+        if (days[i]) {
+            if (cardio) {dayCardio[i] = true}
+            else {dayStrength[i] = true}
         }
+    }
     
-}*/console.log(days);
+console.log(days);
 console.log(dayCardio);
 console.log(dayStrength);}
 else { 
@@ -213,7 +183,53 @@ for(let i = 0; i<days.length;i++){
         console.log(dayWorkouts[i]);
     }
 }
-}}
+}
+
+function findBeginner(){
+    for (let i = 0; i<5; i++){
+        let a = i;
+        let b = i+2;
+        let c = i+4;
+
+        const check = (a,b,c)=>{
+            if(days[a]&&days[b]&&days[c]){
+                for (let k = 0; k<days.length; k++){
+                    if(k!=a&k!=b&&k!=c){
+                        setRestDay(k);
+                    }
+                }
+                return true;
+            }else{
+                return false;
+            }
+        }
+        
+        b = arrayWrapCheck(b, days);
+
+        c = arrayWrapCheck(c, days);
+
+        console.log(`${a}${b}${c}`);
+        if (check(a,b,c)){
+            return true;
+        }
+        else if(i>0&&i<3){
+            a = i + 4;
+            b = a + 2;
+            c = a + 4;
+            
+            b = arrayWrapCheck(b, days);
+
+            c = arrayWrapCheck(c, days);
+
+            console.log(`${a}${b}${c}`);
+            if (check(a,b,c)){
+                return true;
+            }
+        }
+    }
+    console.log("wah");
+    return false;
+}
 
 function comboHandler(start, combo){
     if (combo == 3){
@@ -227,6 +243,17 @@ function comboHandler(start, combo){
     if (combo == 4){
         
     }
+}
+
+function arrayWrapCheck(index, array){
+    if(index>=array.length){
+        return index-array.length;
+    }else if (index<0){
+        return index+array.length;
+    }else {
+        return index;
+    }
+    
 }
 
 function setRestDay(index){
