@@ -32,12 +32,13 @@ function runApp (user, type) {
 
             let sortedWorkouts = [];
             workouts.forEach( workout => {
-                if ( checkWorkout(user, workout, type) ) {
+                if ( checkWorkout(userInfo, workout, type) ) {
                     sortedWorkouts.push(workout);
                 }
             })
 
             // Insert sortedWorkouts info onto page.
+            insertWorkoutsOntoPage(sortedWorkouts, userInfo)
 
         }
     )
@@ -45,7 +46,7 @@ function runApp (user, type) {
 }
 
 function parseWorkouts(textFileName) {
-    const re = /NEW([^,]+),([^,]+),([^,]+),([^,]+),([^,]*),([^,]*),([^,]+)/g
+    const re = /NEW([^,]+),([^,]+),([^,]+),([^,]+),([^,]*),([^,]*),([^,]+),([^,]+)/g
 
     fs.readFile(textFileName, (err, data) => { 
         if (err) throw err; 
@@ -61,7 +62,8 @@ function parseWorkouts(textFileName) {
                     duration: result[3],
                     equipment: result[4],
                     space: result[5],
-                    time: result[6]
+                    time: result[6],
+                    imageRef: result[7]
                 }
             )
         }
@@ -90,4 +92,48 @@ function checkWorkout (user, workout, type) {
         }
     }
     return false;
+}
+
+
+function insertWorkoutsOntoPage(workouts, userInfo) {
+
+    const container = document.getElementById("workout-card-container");
+
+    workouts.forEach(workout => {
+        
+        let displayedDuration = workout.duration.split(":")[userInfo.level];
+        if(workout.type == "cardio") {
+            displayedDuration += " minutes";
+        }
+        else {
+            displayedDuration += " reps";
+        }
+
+        let additionalInformation = "Type: " + workout.type;
+        additionalInformation += "\nIntensity: " + workout.intensity;
+        additionalInformation += "\nRecommended Duration: " + displayedDuration;
+        additionalInformation += "\nEquipment Needed: ";
+        workout.equipment.split(":").forEach( equip => {
+            additionalInformation += "\n\t" + equip;
+        } )
+
+        container.innerHTML += `
+        <div class="card" style="width:350px;margin:10px">
+        <div class="card-image waves-effect waves-block waves-light" >
+        <img class="activator" src="` + workout.imageRef + `" height="200px">
+        </div>
+        <div class="card-content">
+        <span class="card-title activator grey-text text-darken-4">`+ workout.name +`<i class="material-icons right">more_vert</i></span>
+        <p><span>` + displayedDuration + `</span></p>
+        </div>
+        <div class="card-reveal">
+        <span class="card-title grey-text text-darken-4">`+ workout.name + `<i class="material-icons right">close</i></span>
+        <p>` + additionalInformation + `</p>
+        </div>
+        </div>
+        `
+    }
+        
+    )
+
 }
