@@ -178,15 +178,15 @@ function insertWorkoutsOntoPage(workouts, userInfo, page) {
         container.innerHTML += `
         <div class="card" style="width:350px;margin:10px">
         <div class="card-image waves-effect waves-block waves-light" >
-        <img class="activator" src=images/"` + workout.imageRef + `" height="200px">
+        <img class="activator" src=images/"` + String(workout.imageRef) + `" height="200px">
         </div>
         <div class="card-content">
-        <span class="card-title activator grey-text text-darken-4">`+ workout.name +`<i class="material-icons right">more_vert</i></span>
-        <p><span>` + displayedDuration + `</span></p>
+        <span class="card-title activator grey-text text-darken-4">`+ String(workout.name) +`<i class="material-icons right">more_vert</i></span>
+        <p><span>` + String(displayedDuration) + `</span></p>
         </div>
         <div class="card-reveal">
-        <span class="card-title grey-text text-darken-4">`+ workout.name + `<i class="material-icons right">close</i></span>
-        <p>` + additionalInformation + `</p>
+        <span class="card-title grey-text text-darken-4">`+ String(workout.name) + `<i class="material-icons right">close</i></span>
+        <p>` + String(additionalInformation) + `</p>
         </div>
         </div>
         `
