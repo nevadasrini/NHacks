@@ -87,7 +87,7 @@ function updateAccount(user){
             space: space,
             equipment: equipment
 
-        }).then( function() { document.location.href = "index.html" })
+        }).then( function() { document.location.href = "workout.html" })
     }
     else {
 
