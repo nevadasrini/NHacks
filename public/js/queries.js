@@ -1,4 +1,3 @@
-const db = firebase.firestore();
 const users = db.collection("users");
 var currentUser = null;
 var currentUserData = null;
