@@ -73,7 +73,7 @@ function parseWorkouts(textFileName) {
 
 function checkWorkout (user, workout, type) {
 
-    if (type == workout.type && user.intensity == workout.intensity && user.time >= parseInt(workout.time)){
+    if (type == workout.type && parseInt(user.time) >= parseInt(workout.time)){
         let equipMatch = false;
         let spaceMatch = false;
         user.equipment.forEach( equip => {

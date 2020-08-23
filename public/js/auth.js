@@ -23,6 +23,8 @@ signupForm.addEventListener('submit', (e) => {
     // get user info
     const email = signupForm['signup-email'].value;
     const password = signupForm['signup-password'].value;
+
+    const name = signupForm['signup-name'].value;
     
     const ele = document.getElementsByName('signup-level');
     let level = "";
@@ -47,6 +49,16 @@ signupForm.addEventListener('submit', (e) => {
     for(i = 0 ; i < ele3.length ; i++) {
         if(ele3[i].checked) equipment.push(ele3[i].value);
     }
+
+    const docID = email;
+    db.collection('users').doc(docID).set({
+        email: email,
+        name: name,
+        level: level,
+        time: time,
+        space: space,
+        equipment: equipment
+    })
     
     // sign up the user
     auth.createUserWithEmailAndPassword(email, password).then(cred => {
