@@ -6,7 +6,7 @@ auth.onAuthStateChanged(user => {
         setupUI(user);
     } else {
         
-if(!document.location.href.includes("index.html")){
+        if(!document.location.href.includes("index.html")){
             document.location.href = "index.html";
             console.log( document.location.href);
         }
