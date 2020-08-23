@@ -25,6 +25,10 @@ let dayCardio = [false, false, false, false, false, false, false];
 let dayStrength = [false, false, false, false, false, false, false];
 let dayWorkouts =[null,null,null,null,null,null,null];
 
+for(let i = 0; i<dayWorkouts.length; i++){
+    dayWorkouts[i]=new Day(i, false, false, 0)
+}
+
 let cardio = false;
 let strength = false;
 let startDay = -1;
@@ -52,7 +56,6 @@ scheduleForm.addEventListener('click', (e) => {
     days = [false, false, false, false, false, false, false]; //representative of Mon Tues Weds Thurs Fri Sat Sun
     dayCardio = [false, false, false, false, false, false, false];
     dayStrength = [false, false, false, false, false, false, false];
-    dayWorkouts =[null,null,null,null,null,null,null];
 
     cardio = false;
     strength = false;
@@ -117,6 +120,9 @@ if((cardio && !strength) || (!cardio && strength)){
 }
 else { 
     if(numWork >= 4){
+        if(numWork == 7){
+            setRestDay(6);
+        }
         alt = true;
         for(let i = startDay; i<days.length; i++){
             if (days[i]){
@@ -146,27 +152,33 @@ console.log(tableDays);
 
 for(let i = 0; i<days.length;i++){
     let childList = tableDays.cells[i].childNodes[1];
+    childList.innerText = '';
     if(days[i]){
-        dayWorkouts[i] = new Day(i, dayCardio[i], dayStrength[i], 60);
+        dayWorkouts[i].cardio = dayCardio[i];
+        dayWorkouts[i].strength = dayStrength[i];
         //insertWorkouts("cardio").then(queried => dayWorkouts[i].workouts = queried).catch(error=>console.error(error));
         console.log(dayWorkouts[i]);
+        
 
         if(dayStrength[i]){
             var x = document.createElement("li");
             x.innerText = "Strength";
             childList.appendChild(x);
+            console.log(1);
         }
-
         if(dayCardio[i]){
             var x = document.createElement("li");
             x.innerText = "Cardio";
             childList.appendChild(x);
+            
         }
+        
     }
     else{
-            var x = document.createElement("li");
-            x.innerText = "Rest";
-            childList.appendChild(x);
+        var x = document.createElement("li");
+        x.innerText = "Rest";
+        childList.appendChild(x);
+        
     }
 }
 }
