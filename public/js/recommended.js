@@ -38,7 +38,7 @@ function runApp (user, type) {
             })
 
             // Insert sortedWorkouts info onto page.
-            insertWorkoutsOntoPage(sortedWorkouts, userInfo)
+            createPageNumbers(sortedWorkouts, userInfo);
 
         }
     )
@@ -94,12 +94,51 @@ function checkWorkout (user, workout, type) {
     return false;
 }
 
+function createPageNumbers(sortedWorkouts, userInfo){
+    const pager = document.getElementById("pagination");
+    for (i = 0 ; i < ceil(sortedWorkouts.length / 4) ; i++)
+    {
+        let pageLink = document.createElement("a");
+        pageLink.href = "#";
+        pageLink.addEventListener("click", function () {
+            preventDefault();
+            goToPage(i);
+        });
+        pageLink.innerHTML = String(i + 1);
+        pageLink.classList.add("w3-bar-item", "w3-button");
+        
+        if(i == 0) pageLink.classList.add("w3-black");
+        else pageLink.classList.add("w3-hover-black");
 
-function insertWorkoutsOntoPage(workouts, userInfo) {
+        pager.appendChild(pageLink)
+    }
+
+    goToPage(sortedWorkouts, userInfo, 1);
+}
+
+function goToPage(sortedWorkouts, userInfo, page){
+    const pager = document.getElementById("pagination");
+    const pagerChildren = pager.childNodes;
+    pagerChildren[page].classList.remove("w3-hover-black");
+    pagerChildren[page].classList.add("w3-black");
+
+    const container = document.getElementById("workout-card-container");
+    container.innerHTML = "";
+
+    insertWorkoutsOntoPage(sortedWorkouts, userInfo, page);
+
+}
+
+function insertWorkoutsOntoPage(workouts, userInfo, page) {
 
     const container = document.getElementById("workout-card-container");
 
-    workouts.forEach(workout => {
+    let start = (page - 1) * 4;
+    let end = start + 4;
+    if (end > workouts.length) end = workouts.length;
+
+
+    workouts.slice(start, end).forEach(workout => {
         
         let displayedDuration = workout.duration.split(":")[userInfo.level];
         if(workout.type == "cardio") {
