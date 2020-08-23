@@ -2,6 +2,7 @@
 //Ask amt of time per workout day
 //Make routine template based on goals/wanted exercizes
 //Take recommended exercizes and put them into the template
+
 class Day{
     constructor(index,cardio,strength,time){
         this.cardio = cardio;
@@ -156,7 +157,7 @@ for(let i = 0; i<days.length;i++){
     if(days[i]){
         dayWorkouts[i].cardio = dayCardio[i];
         dayWorkouts[i].strength = dayStrength[i];
-        //insertWorkouts("cardio").then(queried => dayWorkouts[i].workouts = queried).catch(error=>console.error(error));
+        insertWorkouts("cardio").then(queried => dayWorkouts[i].workouts = queried).catch(error=>console.error(error));
         console.log(dayWorkouts[i]);
         
 
@@ -293,24 +294,16 @@ function setRestDay(index){
 }
 
 function insertWorkouts(type){
-    new Promise((resolve,reject)=>{
-        getUserInfo(user.email).then(
-            userInfo => {
                 
                 let workouts = parseWorkouts("txt/workouts.txt");
     
                 let sortedWorkouts = [];
                 workouts.forEach( workout => {
-                    if ( checkWorkout(userInfo, workout, type) ) {
+                    if ( checkWorkout(currentUserData, workout, type) ) {
                         sortedWorkouts.push(workout);
                     }
                 })
-                resolve(sortedWorkouts);
+                return sortedWorkouts;
                 
-    
-            }
-        ).catch(error=>reject(error));
-    })
-    
 }
 
