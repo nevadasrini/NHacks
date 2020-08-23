@@ -37,28 +37,23 @@ function runApp (user, type) {
     getUserInfo(user.uid).then(
         userInfo => {
             
-                parseWorkouts("txt/workouts.txt").then( workouts => {
+                workouts = parseWorkouts("txt/workouts.txt")
 
-                    let sortedWorkouts = [];
-                    workouts.forEach( workout => {
-                        if ( checkWorkout(userInfo, workout, type) ) {
-                            sortedWorkouts.push(workout);
-                        }
-                    })
-
-                    if(sortedWorkouts.length == 0) {
-                        document.getElementsByClassName("no-results-found").forEach( element => {
-                            element.style.display = "block";
-                        })
-                    } else {
-                        // Insert sortedWorkouts info onto page.
-                        createPageNumbers(sortedWorkouts, userInfo);
+                let sortedWorkouts = [];
+                workouts.forEach( workout => {
+                    if ( checkWorkout(userInfo, workout, type) ) {
+                        sortedWorkouts.push(workout);
                     }
-
                 })
 
-                
-
+                if(sortedWorkouts.length == 0) {
+                    document.getElementsByClassName("no-results-found").forEach( element => {
+                        element.style.display = "block";
+                    })
+                } else {
+                    // Insert sortedWorkouts info onto page.
+                    createPageNumbers(sortedWorkouts, userInfo);
+                }
         }
     )
 
