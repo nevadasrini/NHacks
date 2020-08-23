@@ -33,7 +33,7 @@ auth.onAuthStateChanged(user => {
 
 function runApp (user, type) {
 
-    getUserInfo(user.email).then(
+    getUserInfo(user.uid).then(
         userInfo => {
             
             let workouts = parseWorkouts("txt/workouts.txt");
