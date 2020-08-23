@@ -43,6 +43,7 @@ function runApp (user, type) {
                 workouts.forEach( workout => {
                     if ( checkWorkout(userInfo, workout, type) ) {
                         sortedWorkouts.push(workout);
+                        console.log(sortedWorkouts)
                     }
                 })
 
@@ -155,7 +156,10 @@ function insertWorkoutsOntoPage(workouts, userInfo, page) {
     let start = (page) * 4;
     let end = start + 4;
     if (end > workouts.length) end = workouts.length;
-
+    console.log(start);
+    console.log(end);
+    console.log(workouts);
+    console.log(workouts.slice(start, end));
 
     workouts.slice(start, end).forEach(workout => {
         
