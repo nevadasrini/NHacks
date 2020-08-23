@@ -266,8 +266,13 @@ h5{
 
 
 #schedule-wrapper table tr td ul li{
-    color: purple;
+    color: white;
     list-style: none;
+}
+
+#schedule-wrapper table tr td ul li.type{
+    color: #f39c12;
+    font-size: large;
 }
 
 #schedule-wrapper table tr td ul{

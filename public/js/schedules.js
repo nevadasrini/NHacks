@@ -234,6 +234,7 @@ for(let i = 0; i<days.length;i++){
                     dayWorkouts[i].workoutsUpper = insertWorkouts("upper-body");
                     var x = document.createElement("li");
                     x.innerText = "Strength: Upper and Core";
+                    x.classList.add("type");
                     var y = document.createElement("li");
                     
                     childList.appendChild(x);
@@ -253,6 +254,7 @@ for(let i = 0; i<days.length;i++){
                     dayWorkouts[i].workoutsLower = insertWorkouts("lower-body");
                     var x = document.createElement("li");
                     x.innerText = "Strength: Lower and Core";
+                    x.classList.add("type");
                     var y = document.createElement("li");
                     childList.appendChild(x);
 
@@ -273,6 +275,7 @@ for(let i = 0; i<days.length;i++){
                 dayWorkouts[i].workoutsLower = insertWorkouts("lower-body");
                 var x = document.createElement("li");
                 x.innerText = "Strength: Fullbody";
+                x.classList.add("type");
 
                 var y = document.createElement("li");
                 var z = document.createElement("li");
@@ -317,6 +320,7 @@ for(let i = 0; i<days.length;i++){
             dayWorkouts[i].workoutsCardio = insertWorkouts("cardio");
             var x = document.createElement("li");
             x.innerText = "Cardio";
+            x.classList.add("type");
             var y = document.createElement("li");
             childList.appendChild(x);
             if(dayWorkouts[i].workoutsCardio.length>0){
