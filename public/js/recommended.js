@@ -144,8 +144,16 @@ function goToPage(sortedWorkouts, userInfo, page){
 
     console.log(pagerChildren);
 
-    pagerChildren[page].classList.remove("w3-hover-black");
-    pagerChildren[page].classList.add("w3-black");
+    for(let i = 0; i<pagerChildren.length; i++) {
+        if(i == page){
+            pagerChildren[i].classList.add("w3-black");
+            pagerChildren[i].classList.remove("w3-hover-black");
+        }
+        else {
+            pagerChildren[i].classList.add("w3-hover-black");
+            pagerChildren[i].classList.remove("w3-black");
+        }
+    }
 
     const container = document.getElementById("workout-card-container");
     container.innerHTML = "";
@@ -185,9 +193,9 @@ function insertWorkoutsOntoPage(workouts, userInfo, page) {
         } )
 
         container.innerHTML += `
-        <div class="card" style="width:350px;margin:10px">
+        <div class="card" style="width:350px;margin:10px; flex-basis: 33%;">
         <div class="card-image waves-effect waves-block waves-light" >
-        <img class="activator" src="images/` + String(workout.imageRef) + `" height="200px">
+        <img class="activator" src="images/` + String(workout.imageRef) + `" height="250px">
         </div>
         <div class="card-content">
         <span class="card-title activator grey-text text-darken-4">`+ String(workout.name) +`<i class="material-icons right">more_vert</i></span>
