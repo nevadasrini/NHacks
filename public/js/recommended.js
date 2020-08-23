@@ -145,7 +145,7 @@ function insertWorkoutsOntoPage(workouts, userInfo, page) {
 
     const container = document.getElementById("workout-card-container");
 
-    let start = (page - 1) * 4;
+    let start = (page) * 4;
     let end = start + 4;
     if (end > workouts.length) end = workouts.length;
 
