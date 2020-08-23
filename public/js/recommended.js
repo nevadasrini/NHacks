@@ -66,7 +66,6 @@ function parseWorkouts() {
 
     let result;
     while ((result = re.exec(data)) !== null ) {
-        console.log(result);
         returnArray.push(
             {
                 name: result[1],
@@ -85,20 +84,13 @@ function parseWorkouts() {
 }
 
 function checkWorkout (user, workout, type) {
-    console.log("NICE");
-    console.log(type);
-    console.log(workout.type);
-
-    console.log(currentUserData.time);
-    console.log(workout.time);
     
     if (type == workout.type && parseInt(currentUserData.time) >= parseInt(workout.time)){
-        console.log("NIttttCE");
+
         let equipMatch = false;
         let spaceMatch = false;
         currentUserData.equipment.forEach( equip => {
-            console.log("equip");
-            console.log(workout.equipment.split(":"));
+
             if (equip in workout.equipment.split(":")){
                 equipMatch = true;
             }
@@ -142,7 +134,7 @@ function createPageNumbers(sortedWorkouts, userInfo){
 function goToPage(sortedWorkouts, userInfo, page){
     const pager = document.getElementById("pagination");
     const pagerChildren = pager.childNodes;
-    console.log(pagerChildren);
+
     pagerChildren[page].classList.remove("w3-hover-black");
     pagerChildren[page].classList.add("w3-black");
 
