@@ -108,7 +108,7 @@ function checkWorkout (user, workout, type) {
 
 function createPageNumbers(sortedWorkouts, userInfo){
     const pager = document.getElementById("pagination");
-    for (i = 0 ; i < ceil(sortedWorkouts.length / 4) ; i++)
+    for (i = 0 ; i < Math.ceil(sortedWorkouts.length / 4) ; i++)
     {
         let pageLink = document.createElement("a");
         pageLink.href = "#";
