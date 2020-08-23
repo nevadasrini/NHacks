@@ -20,7 +20,7 @@ class Day{
     }
 }
 
-var days = [true, false, false, true, true, false, true]; //representative of Mon Tues Weds Thurs Fri Sat Sun
+var days = [true, false, true, true, false, true, false]; //representative of Mon Tues Weds Thurs Fri Sat Sun
 var dayCardio = [false, false, false, false, false, false, false];
 var dayStrength = [false, false, false, false, false, false, false];
 var dayWorkouts =[null,null,null,null,null,null,null];
@@ -59,90 +59,9 @@ numRest = 7-numWork;
 if((cardio && !strength) || (!cardio && strength)){
 
     if (numWork >=4){
-
-        if (!findBeginner()){
-            let start = -1;
-            let i = 0;
-            let run = true;
-
-            while (run){
-                b = i-1;
-
-                b = arrayWrapCheck(b, days);
-                console.log(!days[b] && days[i]);
-
-                if(!days[b] && days[i]){
-                    run = false;
-                    start = i;
-                    c = start + 2;
-                    c = arrayWrapCheck(c, days);
-
-                    if (days[c]){
-                        setRestDay(c);
-                    }
-                    else if (days[arrayWrapCheck(c+1, days)]){
-                        setRestDay(arrayWrapCheck(c+1, days));
-                    }
-                    else if(start == days.length-1){
-                        setRestDay(0);
-                    }
-                    else {
-                        setRestDay(arrayWrapCheck(start+5, days));
-                    }
-                }
-
-                i++;
-                i = arrayWrapCheck(i, days);
-            }
-        }
+        findBeginner()
     }
-        
 
-        /*
-        
-*/
-        /*for(let i = 0; i<days.length; i++){
-            if (
-                (i=0&&!days[days.length-1]&& days[0])||
-                (!days[i-1]&& days[0])
-               )
-            {
-                start = i;
-                combo ++;
-            }
-            else if(days[i] && start!=-1){
-                combo ++;
-;           }
-            else if(!days[i]){
-                
-            }
-        }
-    }*/
-    //make workout template structure
-    /*if(numWork >= 4){
-        temp = 0;
-        if (days[0]){
-            temp ++;
-            if (cardio) {
-                dayCardio[0] = true;
-            }
-            else {dayStrength[0] = true}
-            if (days[6]){
-            }
-        } 
-        for(let i = 1; i < days.length; i++){
-            if ((days[i]) && (days[i-1] || temp == 3)){
-                days[i]= false;
-                numWork--;
-                numRest++;
-            }
-            else if (days[i]) {
-                temp++;
-                if (cardio) {dayCardio[i] = true}
-                else {dayStrength[i] = true}
-            }
-        }
-    }*/
     for(let i =0; i<days.length; i++){
         if (days[i]) {
             if (cardio) {dayCardio[i] = true}
@@ -150,9 +69,10 @@ if((cardio && !strength) || (!cardio && strength)){
         }
     }
     
-console.log(days);
-console.log(dayCardio);
-console.log(dayStrength);}
+    console.log(days);
+    console.log(dayCardio);
+    console.log(dayStrength);
+}
 else { 
     if(numWork >= 4){
         alt = true;
@@ -228,7 +148,39 @@ function findBeginner(){
         }
     }
     console.log("wah");
-    return false;
+    let start = -1;
+            let i = 0;
+
+            while (true){
+                b = i-1;
+
+                b = arrayWrapCheck(b, days);
+                console.log(!days[b] && days[i]);
+
+                if(!days[b] && days[i]){
+                    start = i;
+                    c = start + 2;
+                    c = arrayWrapCheck(c, days);
+
+                    if (days[c]){
+                        setRestDay(c);
+                    }
+                    else if (days[arrayWrapCheck(c+1, days)]){
+                        setRestDay(arrayWrapCheck(c+1, days));
+                    }
+                    else if(start == days.length-1){
+                        setRestDay(0);
+                    }
+                    else {
+                        setRestDay(arrayWrapCheck(start+5, days));
+                    }
+                    return true;
+                }
+
+                i++;
+                i = arrayWrapCheck(i, days);
+            }
+            
 }
 
 function comboHandler(start, combo){
