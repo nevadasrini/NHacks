@@ -144,7 +144,7 @@ h3{
 
 .main-nav li {
     display: inline-block;
-    margin-left: 30px;
+    margin-left: 20px;
     transition: border-bottom 0.3s;
     font-size: 2rem;
 }
@@ -164,4 +164,12 @@ h3{
 
 .lavender{
     color: #f39c12;
+}
+
+.logged-out{
+    float:right;
+}
+
+.logged-in{
+    float:right;
 }
