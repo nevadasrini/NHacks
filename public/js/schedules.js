@@ -44,24 +44,38 @@ for(let i = 0; i<dayWorkouts.length; i++){
 
 let cardio = false;
 let strength = false;
+let armLegSplit = false;
 let startDay = -1;
 let numRest = 0;
 let numWork = 0;
-let timePerDay = 60; //in minutes
-let group = [0,0];
 
 auth.onAuthStateChanged(user => {
     if (user) {
-        console.log('poop logged in: ', user)
+        console.log('poop logged in: ', user);
+
+        if (currentUser == null){
+            getUser(user.uid).then(doc=>{
+                currentUser = doc;
+                currentUserData = doc.data();
+                check();
+            })
+            .catch(error=>console.error(error));}
+        else{
+            check();
+        }
+
+        
         
     } else {
         console.log('user logged out')
     }
 })
 
-const scheduleForm = document.querySelector('.schedule-button');
-const scheduleModal = document.querySelector('#modal-schedule')
-scheduleForm.addEventListener('click', (e) => {
+
+function check(){
+    const scheduleForm = document.querySelector('.schedule-button');
+        const scheduleModal = document.querySelector('#modal-schedule')
+    scheduleForm.addEventListener('click', (e) => {
     // prevent refresh (losing info)
     e.preventDefault();
 
@@ -74,6 +88,7 @@ scheduleForm.addEventListener('click', (e) => {
     strength = false;
     numRest = 0;
     numWork = 0;
+    armLegSplit = false;
 
     const ele3 = document.getElementsByName('days');
     for(i = 0 ; i < ele3.length ; i++) {
@@ -98,10 +113,11 @@ scheduleForm.addEventListener('click', (e) => {
     initialize();
     document.querySelector("#made").classList.remove("hide");
 })
-
+}
 
 
 function initialize(){
+
 for(let i = 0; i < days.length; i++){
     if(days[i]){
         numWork++;
@@ -120,7 +136,7 @@ if((cardio && !strength) || (!cardio && strength)){
     }
     console.log(days);
 
-    for(let i =0; i<days.length; i++){
+    for(let i = 0; i<days.length; i++){
         if (days[i]) {
             if (cardio) {dayCardio[i] = true}
             else {dayStrength[i] = true}
@@ -151,8 +167,11 @@ else {
     }
     else{
         for(let i = 0; i<days.length; i++){
-            dayCardio[i] = true;
-            dayStrength[i] = true;
+            if(days[i]){
+                dayCardio[i] = true;
+                dayStrength[i] = true;
+            }
+            
         }
     }
 }
@@ -162,7 +181,43 @@ let table = document.getElementById("schedule"); //gets schedules week graphic
 let tableDays = table.rows[1];
 console.log(tableDays);
 
+if (numWork != 1 && strength){
+    let val = true;
+    let index = 0;
+    let startVal = -1;
+    let times = 2;
 
+    if(numWork == 2){
+        times = 1;
+    }
+
+    while (val){
+        let b = index-1;
+
+        b = arrayWrapCheck(b, dayStrength);
+        console.log(!dayStrength[b]);
+        console.log(dayStrength[index]);
+        //alert(dayStrength);
+        if(!dayStrength[b] && dayStrength[index]){
+            
+            startVal = index;
+            let c = arrayWrapCheck(startVal+1, dayStrength);
+            if(dayStrength[c]){
+                armLegSplit = true;
+                val = false;
+            }
+            else{
+                times --;
+            }
+        }
+        if (times == 0){
+            val = false;
+        }
+        index++;
+        index = arrayWrapCheck(index, days);
+    }
+}
+let swap = true;
 for(let i = 0; i<days.length;i++){
     let childList = tableDays.cells[i].childNodes[1];
     childList.innerText = '';
@@ -173,18 +228,107 @@ for(let i = 0; i<days.length;i++){
         
 
         if(dayStrength[i]){
-            var x = document.createElement("li");
-            x.innerText = "Strength";
-            childList.appendChild(x);
-            dayWorkouts[i].workoutsUpper = insertWorkouts("upper-body");
-            dayWorkouts[i].workoutsLower = insertWorkouts("lower-body");
+        
+            if (armLegSplit){
+                if (swap){
+                    dayWorkouts[i].workoutsUpper = insertWorkouts("upper-body");
+                    var x = document.createElement("li");
+                    x.innerText = "Strength: Upper and Core";
+                    var y = document.createElement("li");
+                    
+                    childList.appendChild(x);
+                    
+
+                    if(dayWorkouts[i].workoutsUpper.length>0){
+                        y.innerText = dayWorkouts[i].workoutsUpper[0].name;
+
+                    }
+                    else{
+                        y.innerText = "No upper workouts found.";
+                    }
+                    childList.appendChild(y);
+                    swap = false;
+                }
+                else{
+                    dayWorkouts[i].workoutsLower = insertWorkouts("lower-body");
+                    var x = document.createElement("li");
+                    x.innerText = "Strength: Lower and Core";
+                    var y = document.createElement("li");
+                    childList.appendChild(x);
+
+                    if(dayWorkouts[i].workoutsLower.length>0){
+                        y.innerText = dayWorkouts[i].workoutsLower[0].name;
+
+                    }
+                    else{
+                        y.innerText = "No lower workouts found.";
+                    }
+                    childList.appendChild(y);
+
+                    swap = true;
+                }
+            }
+            else{
+                dayWorkouts[i].workoutsUpper = insertWorkouts("upper-body");
+                dayWorkouts[i].workoutsLower = insertWorkouts("lower-body");
+                var x = document.createElement("li");
+                x.innerText = "Strength: Fullbody";
+
+                var y = document.createElement("li");
+                var z = document.createElement("li");
+
+                if(dayWorkouts[i].workoutsUpper.length>0){
+                    y.innerText = dayWorkouts[i].workoutsUpper[0].name;
+
+                }
+                else{
+                    y.innerText = "No upper workouts found.";
+                } 
+                if(dayWorkouts[i].workoutsLower.length>0){
+                    z.innerText = dayWorkouts[i].workoutsLower[0].name;
+
+                }
+                else{
+                    z.innerText = "No lower workouts found.";
+                }
+
+                childList.appendChild(x);
+                childList.appendChild(y);
+                childList.appendChild(z);
+            }
+            
             dayWorkouts[i].workoutsCore = insertWorkouts("core");
+            var z = document.createElement("li");
+            
+            
+
+            if(dayWorkouts[i].workoutsCore.length>0){
+                z.innerText = dayWorkouts[i].workoutsCore[0].name;
+
+            }
+            else{
+                z.innerText = "No core workouts found.";
+            }
+
+            childList.appendChild(z);
+
         }
         if(dayCardio[i]){
+            dayWorkouts[i].workoutsCardio = insertWorkouts("cardio");
             var x = document.createElement("li");
             x.innerText = "Cardio";
+            var y = document.createElement("li");
             childList.appendChild(x);
-            dayWorkouts[i].workoutsCardio = insertWorkouts("cardio");
+            if(dayWorkouts[i].workoutsCardio.length>0){
+                
+                y.innerText = dayWorkouts[i].workoutsCardio[0].name;
+                
+                
+            }
+            else{
+                y.innerText = "No cardio workouts found.";
+            }
+            childList.appendChild(y);
             
         }
         
@@ -195,7 +339,15 @@ for(let i = 0; i<days.length;i++){
         childList.appendChild(x);
         
     }
+
+    
 }
+    if (armLegSplit){
+        document.getElementById("split").classList.remove("hide");
+    }
+    else{
+        document.getElementById("split").classList.add("hide");
+    }
 }
 
 function findBeginner(){
