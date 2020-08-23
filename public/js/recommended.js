@@ -185,11 +185,11 @@ function insertWorkoutsOntoPage(workouts, userInfo, page) {
         }
 
         let additionalInformation = "Type: " + workout.type;
-        additionalInformation += "\nIntensity: " + workout.intensity;
-        additionalInformation += "\nRecommended Duration: " + displayedDuration;
-        additionalInformation += "\nEquipment Needed: ";
+        additionalInformation += "<br/><br/>Intensity: " + workout.intensity;
+        additionalInformation += "<br/><br/>Recommended Duration: " + displayedDuration;
+        additionalInformation += "<br/><br/>Equipment Needed: ";
         workout.equipment.split(":").forEach( equip => {
-            additionalInformation += "\n\t" + equip;
+            additionalInformation += "<br/>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + equip;
         } )
 
         container.innerHTML += `
