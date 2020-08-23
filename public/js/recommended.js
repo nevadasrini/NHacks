@@ -37,7 +37,7 @@ function runApp (user, type) {
     getUserInfo(user.uid).then(
         userInfo => {
             
-                workouts = parseWorkouts("txt/workouts.txt")
+                workouts = parseWorkouts()
 
                 let sortedWorkouts = [];
                 workouts.forEach( workout => {
@@ -59,8 +59,8 @@ function runApp (user, type) {
 
 }
 
-function parseWorkouts(textFileName) {
-    const re = /NEW([^,]+),([^,]+),([^,]+),([^,]+),([^,]*),([^,]*),([^,]+),([^,]+)/g
+function parseWorkouts() {
+    const re = /NEW([^,]+),([^,]+),([^,]+),([^,]+),([^,]*),([^,]*),([^,]+),([^,]+?)\n/g
 
     let returnArray = [];
 
