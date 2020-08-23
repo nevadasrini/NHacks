@@ -290,4 +290,6 @@ h5{
     height: 125vh;
 }
 
-
+.about-page p{
+    text-align: justify;
+}
