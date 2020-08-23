@@ -314,3 +314,8 @@ h5{
     background-color: #141414;
     height: 100vh;
 }
+
+.w3-quarter h1:hover {
+    text-decoration: underline #f39c12;
+    transition: 0.5s;
+}
