@@ -20,7 +20,7 @@ class Day{
     }
 }
 
-var days = [true, false, false, true, true, false, true,]; //representative of Mon Tues Weds Thurs Fri Sat Sun
+var days = [true, false, true, true, false, true, true]; //representative of Mon Tues Weds Thurs Fri Sat Sun
 var dayCardio = [false, false, false, false, false, false, false];
 var dayStrength = [false, false, false, false, false, false, false];
 var dayWorkouts =[null,null,null,null,null,null,null];
@@ -57,52 +57,76 @@ for(let i = 0; i < days.length; i++){
 numRest = 7-numWork;
 
 if((cardio && !strength) || (!cardio && strength)){
-    /*let start = 0;
-    let combo = 1;
 
-    if(numWork = 7){
-        days[1] = false;
-        days[3] = false;
-        numWork = numWork - 2;
-        numRest = numRest + 2;
-    }
-    else if (numWork = 6){
-        let index = -1;
-        for(let i = 0; i<days.length; i++){
-            if(!days[i]){
-                index = i;
-                break;
+    if (numWork >=5){
+        for (let i = 0; i<5; i++){
+            let a = i;
+            let b = i+2;
+            let c = i+4;
+
+            const check = (a,b,c)=>{
+                if(days[a]&&days[b]&&days[c]){
+                    for (let k = 0; k<days.length; k++){
+                        if(k!=a&k!=b&&k!=c){
+                            setRestDay(k);
+                        }
+                    }
+                    return true;
+                }else{
+                    return false;
+                }
             }
-        }
-        if (index != 0){
-            let cross = false;
-            for(let i = 0; i<days.length; i++){
-                if (days[i]){
-                    if (cross){
-                        days[i] = false;
-                        cross = false;
-                        numWork --;
-                        numRest ++;
-                    }
-                    else{
-                        cross = true;
-                    }
+            
+            if(b>=days.length){
+                b= b-days.length;
+            }
+
+            if(c>=days.length){
+                c= c-days.length;
+            }
+            console.log(`${a}${b}${c}`);
+            if (check(a,b,c)){
+                i=days.length;
+            }
+            else if(i>0&&i<3){
+                a = days.length-i;
+                b = a + 2;
+                c = a + 4;
+                
+                if(b>=days.length){
+                    b= b-days.length;
+                }
+    
+                if(c>=days.length){
+                    c= c-days.length;
+                }
+                console.log(`${a}${b}${c}`);
+                if (check(a,b,c)){
+                    i=days.length;
                 }
             }
         }
-        else{
-            days[2] = false;
-            days[4] = false;
-            days[6] = false;
 
-            numWork = numWork - 3;
-            numRest = numRest + 3;
-        }  
-    }
-    else {
+        /*
         let start = -1;
         let combo = 0;
-        for(let i = 0; i<days.length; i++){
+
+        if(days[0]&&days[days.length - 1]){
+            for (let j = days.length-1; j>=0; j--){
+                combo++;
+                if(!days[j-1]){
+                    start = j;
+                }
+            }
+            for (let i = 0; i<days.length; i++)
+                combo++;
+                if(!days[j+1]){
+                    i=days.length;
+                }
+            }
+        }
+*/
+        /*for(let i = 0; i<days.length; i++){
             if (
                 (i=0&&!days[days.length-1]&& days[0])||
                 (!days[i-1]&& days[0])
@@ -120,7 +144,7 @@ if((cardio && !strength) || (!cardio && strength)){
         }
     }*/
     //make workout template structure
-    if(numWork >= 4){
+    /*if(numWork >= 4){
         temp = 0;
         if (days[0]){
             temp ++;
@@ -155,10 +179,10 @@ if((cardio && !strength) || (!cardio && strength)){
         
        
         }
-    console.log(days);
-    console.log(dayCardio);
-    console.log(dayStrength);
-}
+    
+}*/console.log(days);
+console.log(dayCardio);
+console.log(dayStrength);}
 else { 
     if(numWork >= 4){
         alt = true;
@@ -189,7 +213,28 @@ for(let i = 0; i<days.length;i++){
         console.log(dayWorkouts[i]);
     }
 }
+}}
+
+function comboHandler(start, combo){
+    if (combo == 3){
+        if(start == days.length-1){
+            setRestDay(0);
+        }
+        else{
+            setRestDay(start+1);
+        }
+    }
+    if (combo == 4){
+        
+    }
 }
+
+function setRestDay(index){
+    days[index] = false;
+    numWork--;
+    numRest++;
+}
+
 function insertWorkouts(type){
     new Promise((resolve,reject)=>{
         getUserInfo(user.email).then(
