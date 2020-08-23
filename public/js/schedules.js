@@ -89,6 +89,7 @@ function check(){
     numRest = 0;
     numWork = 0;
     armLegSplit = false;
+    startDay = -1;
 
     const ele3 = document.getElementsByName('days');
     for(i = 0 ; i < ele3.length ; i++) {
@@ -117,6 +118,12 @@ function check(){
 
 
 function initialize(){
+    console.log("start");
+    console.log(days);
+    console.log(dayStrength);
+    console.log(dayCardio);
+    console.log(dayWorkouts);
+    console.log(startDay);
 
 for(let i = 0; i < days.length; i++){
     if(days[i]){
@@ -132,9 +139,9 @@ numRest = 7-numWork;
 if((cardio && !strength) || (!cardio && strength)){
 
     if (numWork >=4){
-        findBeginner()
+        findBeginner();
     }
-    console.log(days);
+
 
     for(let i = 0; i<days.length; i++){
         if (days[i]) {
@@ -144,15 +151,13 @@ if((cardio && !strength) || (!cardio && strength)){
     }
     
     
-    console.log(dayCardio);
-    console.log(dayStrength);
 }
 else { 
     if(numWork >= 4){
         if(numWork == 7){
             setRestDay(6);
         }
-        alt = true;
+        let alt = true;
         for(let i = startDay; i<days.length; i++){
             if (days[i]){
                 if (alt){
@@ -164,6 +169,14 @@ else {
                 alt= !alt;
             }
         }
+        console.log("mid");
+        console.log(days);
+    console.log(dayCardio);
+    console.log(dayStrength);
+    console.log(startDay);
+    //console.log(numWork);
+    //console.log(cardio);
+    //console.log(strength);
     }
     else{
         for(let i = 0; i<days.length; i++){
@@ -175,11 +188,11 @@ else {
         }
     }
 }
-console.log('yee');
+
 
 let table = document.getElementById("schedule"); //gets schedules week graphic
 let tableDays = table.rows[1];
-console.log(tableDays);
+
 
 if (numWork != 1 && strength){
     let val = true;
@@ -195,8 +208,6 @@ if (numWork != 1 && strength){
         let b = index-1;
 
         b = arrayWrapCheck(b, dayStrength);
-        console.log(!dayStrength[b]);
-        console.log(dayStrength[index]);
         //alert(dayStrength);
         if(!dayStrength[b] && dayStrength[index]){
             
@@ -353,6 +364,11 @@ for(let i = 0; i<days.length;i++){
     else{
         document.getElementById("split").classList.add("hide");
     }
+    console.log("END");
+    console.log(days);
+    console.log(dayStrength);
+    console.log(dayCardio);
+    console.log(dayWorkouts);
 }
 
 function findBeginner(){

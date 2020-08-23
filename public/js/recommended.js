@@ -108,7 +108,6 @@ function checkWorkout (workout, type) {
         })
 
         if ((equipMatch || workout.equipment == "none") && (spaceMatch || workout.space == "none")) {
-            console.log("SUPER");
             return true;
         }
     }
@@ -142,7 +141,7 @@ function goToPage(sortedWorkouts, userInfo, page){
     const pager = document.getElementById("pagination");
     const pagerChildren = pager.childNodes;
 
-    console.log(pagerChildren);
+
 
     for(let i = 0; i<pagerChildren.length; i++) {
         if(i == page){
