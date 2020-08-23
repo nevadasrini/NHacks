@@ -1,11 +1,22 @@
 const users = db.collection("users");
 var currentUser = null;
 var currentUserData = null;
-getUser(UserID).then(doc=>{
-    currentUser = doc;
-    currentUserData = doc.data();
+
+auth.onAuthStateChanged(user => {
+    if (user) {
+        getUser(user.uid).then(doc=>{
+            currentUser = doc;
+            currentUserData = doc.data();
+        })
+        .catch(error=>console.error(error));
+        
+    } 
+    else{
+        currentUser = null;
+        currentUserData = null;
+    }
 })
-.catch(error=>console.error(error));
+
 
 function getUsers(){ /*in future want to use user ID*/
     return new Promise((resolve,reject)=>{
