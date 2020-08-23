@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Recommended Workouts</title>
+    <title id="main-title">Recommended Workouts</title>
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Da+2&display=swap" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+    <link href="css/style2.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -23,7 +26,24 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif}
 <body>
 
 <!-- Header -->
+<div class="nv-nav nv-cover" style="height:250px">
+  <img src="pics/logo.png" alt="Logo" class="logo">
+  <ul class="main-nav">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="workout.html">Workout</a></li>
+      <li ><a href="monsters.html">About</a></li>
+      <li ><a href="races.html">Resources</a></li>
+      <li class="logged-out"><a href = "#" class="modal-trigger" data-target="modal-login">Log In</a></li>
+      <li class="logged-out"><a href = "#" class="modal-trigger" data-target="modal-signup">Sign Up</a></li> 
+      <li class="logged-in"><a href = "#" class="modal-trigger" data-target="modal-logout" id="logout">Log Out</a></li> 
+  </ul>
+  <!-- !PAGE CONTENT! -->
+<div class="" style="max-width:1200px;margin-top:25px">
+<p id="title-header" style="font-size: 40px; display:flex; flex-wrap:wrap; justify-content:center; color: #d35400">Recommended Workouts</p> 
+<br/><br/>
 
+</div>
+</div>
   
 <!-- !PAGE CONTENT! -->
 <div id="workout-card-container" class="w3-main w3-content w3-padding" style="max-width:1200px;margin-top:100px;display:flex;flex-wrap:wrap;justify-content:center;">
