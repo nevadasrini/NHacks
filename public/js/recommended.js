@@ -128,7 +128,7 @@ function createPageNumbers(sortedWorkouts, userInfo){
         pager.appendChild(pageLink)
     }
 
-    goToPage(sortedWorkouts, userInfo, 1);
+    goToPage(sortedWorkouts, userInfo, 0);
 }
 
 function goToPage(sortedWorkouts, userInfo, page){
