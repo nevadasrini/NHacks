@@ -303,6 +303,7 @@ function insertWorkouts(type){
                         sortedWorkouts.push(workout);
                     }
                 })
+                console.log(sortedWorkouts);
                 return sortedWorkouts;
                 
 }

@@ -84,6 +84,7 @@ function parseWorkouts(textFileName) {
             }
         )
     }
+    console.log(returnArray);
     return returnArray;
 }
 
