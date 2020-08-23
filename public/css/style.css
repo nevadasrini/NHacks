@@ -35,7 +35,7 @@ body{
 }
 
 
-header {
+.nv-cover {
     background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url(/public/pics/fitness.webp);
     height: 100vh;
     background-size: cover;
@@ -78,8 +78,8 @@ h3{
     float: left;
 }
 
-.btn:link,
-.btn:visited{
+.nv-btn:link,
+.nv-btn:visited{
     display: inline-block;
     border-radius: 200px;
     text-decoration: none;
@@ -88,37 +88,36 @@ h3{
     margin-right: 20px;
     transition: background-color 0.5s, border 0.5s, color 0.5s;
     box-shadow: 13px 18px 23px -2px rgba(0,0,0,0.75);
+    font-size: 1.2rem;
 }
 
-.btn:hover,
-.btn:active{
+.nv-btn:hover,
+.nv-btn:active{
     transform: translate(0, 3px);
 }
 
-.btn-full:link,
-.btn-full:visited{
+.nv-btn-full:link,
+.nv-btn-full:visited{
     background-color: #f39c12;
     color: white;
     border: 1px solid #f39c12;
 }
 
-
-.btn-ghost:link,
-.btn-ghost:visited{
+.nv-btn-ghost:link,
+.nv-btn-ghost:visited{
     color: #f39c12;
     border: 1px solid #f39c12;
 }
 
-.btn-full:hover,
-.btn-full:active{
+.nv-btn-full:hover,
+.nv-btn-full:active{
     background-color: #d35400;
     border: 1px solid #d35400;
     
 }
 
-
-.btn-ghost:hover,
-.btn-ghost:active{
+.nv-btn-ghost:hover,
+.nv-btn-ghost:active{
     background-color: #d35400;
     border: 1px solid #d35400;
     color: white;
@@ -138,23 +137,28 @@ h3{
     margin-right: 40px;
 }
 
-nav{
+.nv-btn-nav{
     margin: 0;
+    background-color: none;
 }
 
 .main-nav li {
     display: inline-block;
-    margin-left: 10px;
+    margin-left: 30px;
     transition: border-bottom 0.3s;
+    font-size: 2rem;
 }
 
 .main-nav a {
     text-decoration: none;
     color: white;
+    font-size: 1.2rem;
     
 }
 
 .main-nav li a:hover,
 .main-nav li a:active{
     border-bottom: 2px solid #f39c12;
+    background-color: none;
 }
+

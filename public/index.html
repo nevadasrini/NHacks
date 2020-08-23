@@ -7,28 +7,32 @@
         <!-- CSS  -->
         <link href="https://fonts.googleapis.com/css?family=Baloo+Da+2&display=swap" rel="stylesheet">
         <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
     </head>
     <body>
-        <header>
+        <div class="nv-cover">
             <!--NAVBAR (different for homepage)-->
-            <nav>
+            <div class="nv-nav">
                 <img src="pics/logo.png" alt="Logo" class="logo">
                 <ul class="main-nav">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="classes.html">Workout</a></li>
-                    <li><a href="monsters.html">About</a></li>
-                    <li><a href="races.html">Resources</a></li>
+                    <li class="nav-list"><a href="index.html">Home</a></li>
+                    <li class="nav-list"><a href="classes.html">Workout</a></li>
+                    <li class="nav-list"><a href="monsters.html">About</a></li>
+                    <li class="nav-list"><a href="races.html">Resources</a></li>
+                    <li class="nav-list logged-out"><a href = "#" class="modal-trigger" data-target="modal-login">Log In</a></li>
+                    <li class="nav-list logged-out"><a href = "#" class="modal-trigger" data-target="modal-signup">Sign Up</a></li> 
+                    <li class="nav-list logged-in"><a href = "#" class="modal-trigger" data-target="modal-logout" id="logout">Log Out</a></li> 
                 </ul>
-            </nav>
+            </div>
             <!--TITLE AND TAGLINE-->
             <div class="text">
                 <h1>MyFit.</h1>
                 <h3>Blah blah blah. <br> Blah blah blah. </h3>
-                <a href="#" target="_blank" class="btn btn-full">Shape Up!</a>
-                <a href="#about" class="btn btn-ghost">Learn more</a>
+                <a href="#" target="_blank" class="nv-btn nv-btn-full">Shape Up!</a>
+                <a href="#about" class="nv-btn nv-btn-ghost">Learn more</a>
             </div>
             
-        </header>
+        </div>
         <main>
 
         </main>
