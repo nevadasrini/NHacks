@@ -1,12 +1,11 @@
 // listen for auth status changes and logs them to the console
 auth.onAuthStateChanged(user => {
     if (user) {
-        if(document.location.href.includes("index.html"))  document.location.href = "workout.html";
         console.log('user logged in: ', user)
         setupUI(user);
     } else {
         
-if(!document.location.href.includes("index.html")){
+        if(!document.location.href.includes("index.html")){
             document.location.href = "index.html";
             console.log( document.location.href);
         }
@@ -71,7 +70,9 @@ signupForm.addEventListener('submit', (e) => {
     auth.onAuthStateChanged(user => {
         db.collection('users').doc(docID).update({
             userid: user.uid || "none"
-        })
+        }).then(bleh=>{
+            if(document.location.href.includes("index.html"))  document.location.href = "workout.html";
+        });
     })
 })
 
