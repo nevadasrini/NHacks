@@ -167,6 +167,11 @@ h3{
     background-color: #f39c12;
 }
 
+.lavender:hover,
+.lavender:active{
+    background-color: #d35400;
+}
+
 .logged-out{
     float:right;
 }
@@ -176,7 +181,7 @@ h3{
 }
 
 .banner-fit{
-    height: 30vh;
+    height: 33vh;
     width: 100%;
     background-color: #141414;
 }
@@ -213,7 +218,8 @@ h3{
     margin: 5%;
     height: 70vh;
     box-shadow: 15px 15px rgba(0, 0, 0, 0.233);
-    padding: 2%;
+    padding: 3%;
+    padding-top: 0%;
 }
 
 .center{
@@ -287,7 +293,14 @@ h5{
 
 .cover2{
     background-color: #141414;
-    height: 125vh;
+    height: 135vh;
 }
 
+.about-page p{
+    text-align: justify;
+}
 
+.cover3{
+    background-color: #141414;
+    height: 100vh;
+}

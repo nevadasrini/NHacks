@@ -41,8 +41,9 @@ function runApp (user, type) {
 
                 let sortedWorkouts = [];
                 workouts.forEach( workout => {
-                    if ( checkWorkout(userInfo, workout, type) ) {
+                    if ( checkWorkout(workout, type) ) {
                         sortedWorkouts.push(workout);
+                        console.log(sortedWorkouts)
                     }
                 })
 
@@ -83,20 +84,25 @@ function parseWorkouts() {
     return returnArray;
 }
 
-function checkWorkout (user, workout, type) {
+function checkWorkout (workout, type) {
     
+    if(workout.name == "Running") {
+        console.log(type == workout.type);
+        console.log(parseInt(currentUserData.time) >= parseInt(workout.time));
+
+    }
+
     if (type == workout.type && parseInt(currentUserData.time) >= parseInt(workout.time)){
 
         let equipMatch = false;
         let spaceMatch = false;
         currentUserData.equipment.forEach( equip => {
-
-            if (equip in workout.equipment.split(":")){
+            if (workout.equipment.split(":").includes(equip)){
                 equipMatch = true;
             }
         })
         currentUserData.space.forEach( space => {
-            if (space in workout.space.split(":")){
+            if (workout.space.split(":").includes(space)){
                 spaceMatch = true;
             }
         })
@@ -111,6 +117,7 @@ function checkWorkout (user, workout, type) {
 
 function createPageNumbers(sortedWorkouts, userInfo){
     const pager = document.getElementById("pagination");
+    pager.innerHTML = "";
     for (let i = 0 ; i < Math.ceil(sortedWorkouts.length / 4) ; i++)
     {
         let pageLink = document.createElement("a");
@@ -128,15 +135,25 @@ function createPageNumbers(sortedWorkouts, userInfo){
         pager.appendChild(pageLink)
     }
 
-    goToPage(sortedWorkouts, userInfo, 1);
+    goToPage(sortedWorkouts, userInfo, 0);
 }
 
 function goToPage(sortedWorkouts, userInfo, page){
     const pager = document.getElementById("pagination");
     const pagerChildren = pager.childNodes;
 
-    pagerChildren[page].classList.remove("w3-hover-black");
-    pagerChildren[page].classList.add("w3-black");
+    console.log(pagerChildren);
+
+    for(let i = 0; i<pagerChildren.length; i++) {
+        if(i == page){
+            pagerChildren[i].classList.add("w3-black");
+            pagerChildren[i].classList.remove("w3-hover-black");
+        }
+        else {
+            pagerChildren[i].classList.add("w3-hover-black");
+            pagerChildren[i].classList.remove("w3-black");
+        }
+    }
 
     const container = document.getElementById("workout-card-container");
     container.innerHTML = "";
@@ -152,7 +169,10 @@ function insertWorkoutsOntoPage(workouts, userInfo, page) {
     let start = (page) * 4;
     let end = start + 4;
     if (end > workouts.length) end = workouts.length;
-
+    console.log(start);
+    console.log(end);
+    console.log(workouts);
+    console.log(workouts.slice(start, end));
 
     workouts.slice(start, end).forEach(workout => {
         
@@ -173,17 +193,17 @@ function insertWorkoutsOntoPage(workouts, userInfo, page) {
         } )
 
         container.innerHTML += `
-        <div class="card" style="width:350px;margin:10px">
+        <div class="card" style="width:350px;margin:10px; flex-basis: 33%;">
         <div class="card-image waves-effect waves-block waves-light" >
-        <img class="activator" src="` + workout.imageRef + `" height="200px">
+        <img class="activator" src="images/` + String(workout.imageRef) + `" height="250px">
         </div>
         <div class="card-content">
-        <span class="card-title activator grey-text text-darken-4">`+ workout.name +`<i class="material-icons right">more_vert</i></span>
-        <p><span>` + displayedDuration + `</span></p>
+        <span class="card-title activator grey-text text-darken-4">`+ String(workout.name) +`<i class="material-icons right">more_vert</i></span>
+        <p><span>` + String(displayedDuration) + `</span></p>
         </div>
         <div class="card-reveal">
-        <span class="card-title grey-text text-darken-4">`+ workout.name + `<i class="material-icons right">close</i></span>
-        <p>` + additionalInformation + `</p>
+        <span class="card-title grey-text text-darken-4">`+ String(workout.name) + `<i class="material-icons right">close</i></span>
+        <p>` + String(additionalInformation) + `</p>
         </div>
         </div>
         `
