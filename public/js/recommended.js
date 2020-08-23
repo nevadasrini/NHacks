@@ -37,7 +37,7 @@ function runApp (user, type) {
     getUserInfo(user.uid).then(
         userInfo => {
             
-                workouts = parseWorkouts("txt/workouts.txt")
+                workouts = parseWorkouts()
 
                 let sortedWorkouts = [];
                 workouts.forEach( workout => {
@@ -47,7 +47,7 @@ function runApp (user, type) {
                 })
 
                 if(sortedWorkouts.length == 0) {
-                    document.getElementsByClassName("no-results-found").forEach( element => {
+                    document.querySelectorAll(".no-results-found").forEach( element => {
                         element.style.display = "block";
                     })
                 } else {
@@ -59,8 +59,8 @@ function runApp (user, type) {
 
 }
 
-function parseWorkouts(textFileName) {
-    const re = /NEW([^,]+),([^,]+),([^,]+),([^,]+),([^,]*),([^,]*),([^,]+),([^,]+)/g
+function parseWorkouts() {
+    const re = /NEW([^,]+),([^,]+),([^,]+),([^,]+),([^,]*),([^,]*),([^,]+),([^,]+?)\n/g
 
     let returnArray = [];
 
@@ -68,14 +68,14 @@ function parseWorkouts(textFileName) {
     while ((result = re.exec(data)) !== null ) {
         returnArray.push(
             {
-                name: result[0],
-                type: result[1],
-                intensity: result[2],
-                duration: result[3],
-                equipment: result[4],
-                space: result[5],
-                time: result[6],
-                imageRef: result[7]
+                name: result[1],
+                type: result[2],
+                intensity: result[3],
+                duration: result[4],
+                equipment: result[5],
+                space: result[6],
+                time: result[7],
+                imageRef: result[8]
             }
         )
     }
