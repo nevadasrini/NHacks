@@ -40,7 +40,7 @@ logout.addEventListener('click', (e) => {
     // prevent default actions (refresh)
     e.preventDefault()
     auth.signOut().then(() => {
-        //
+        console.log("logged out");
     })
 })
 
