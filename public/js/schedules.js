@@ -462,13 +462,14 @@ function setRestDay(index){
 function insertWorkouts(type){
                 
                 let workouts = parseWorkouts("txt/workouts.txt");
-    
+                
                 let sortedWorkouts = [];
                 workouts.forEach( workout => {
-                    if ( checkWorkout(currentUserData, workout, type) ) {
+                    if ( checkWorkout(workout, type) ) {
                         sortedWorkouts.push(workout);
                     }
                 })
+                
                 return sortedWorkouts;
                 
 }
