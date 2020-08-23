@@ -47,7 +47,7 @@ function runApp (user, type) {
                 })
 
                 if(sortedWorkouts.length == 0) {
-                    document.getElementsByClassName("no-results-found").forEach( element => {
+                    document.querySelectorAll(".no-results-found").forEach( element => {
                         element.style.display = "block";
                     })
                 } else {
