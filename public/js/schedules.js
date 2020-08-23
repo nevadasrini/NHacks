@@ -157,7 +157,7 @@ for(let i = 0; i<days.length;i++){
     if(days[i]){
         dayWorkouts[i].cardio = dayCardio[i];
         dayWorkouts[i].strength = dayStrength[i];
-        insertWorkouts("cardio").then(queried => dayWorkouts[i].workouts = queried).catch(error=>console.error(error));
+        dayWorkouts[i].workouts =insertWorkouts("cardio");
         console.log(dayWorkouts[i]);
         
 
