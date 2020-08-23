@@ -102,7 +102,7 @@ function createPageNumbers(sortedWorkouts, userInfo){
         pageLink.href = "#";
         pageLink.addEventListener("click", function () {
             preventDefault();
-            goToPage(i);
+            goToPage(sortedWorkouts, userInfo, i);
         });
         pageLink.innerHTML = String(i + 1);
         pageLink.classList.add("w3-bar-item", "w3-button");
@@ -113,7 +113,7 @@ function createPageNumbers(sortedWorkouts, userInfo){
         pager.appendChild(pageLink)
     }
 
-    goToPage(sortedWorkouts, userInfo, 1);
+    goToPage(sortedWorkouts, userInfo, 0);
 }
 
 function goToPage(sortedWorkouts, userInfo, page){
