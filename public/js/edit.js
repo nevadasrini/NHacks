@@ -78,7 +78,7 @@ function updateAccount(user){
             if(ele3[i].checked) equipment.push(ele3[i].value);
         }
 
-        db.collection('users').doc(user.email).set({
+        db.collection('users').doc(user.email).update({
             
             name: form.name.value,
             email: user.email,

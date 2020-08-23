@@ -1,16 +1,17 @@
-// Project: Song Converter
-// Names: Nivedha Srinivasan, Oreoluwa Alao
-// Date: 6/14/20
-// Task Description: Handles user authentication (log in, sign up, log out) and tracks user auth status
-
 // listen for auth status changes and logs them to the console
 auth.onAuthStateChanged(user => {
     if (user) {
+        if(document.location.href.includes("index.html"))  document.location.href = "workout.html";
         console.log('user logged in: ', user)
         setupUI(user);
     } else {
+        
+if(!document.location.href.includes("index.html")){
+            document.location.href = "index.html";
+            console.log( document.location.href);
+        }
         setupUI();
-        console.log('user logged out')
+        console.log('user logged out');
     }
 })
 
@@ -69,7 +70,7 @@ signupForm.addEventListener('submit', (e) => {
     
     auth.onAuthStateChanged(user => {
         db.collection('users').doc(docID).update({
-            userID: user.uid || "none"
+            userid: user.uid || "none"
         })
     })
 })
