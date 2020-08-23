@@ -230,3 +230,244 @@ hr{border:0;border-top:1px solid #eee;margin:20px 0}
 .w3-border-dark-grey,.w3-hover-border-dark-grey:hover,.w3-border-dark-gray,.w3-hover-border-dark-gray:hover{border-color:#616161!important}
 .w3-border-pale-red,.w3-hover-border-pale-red:hover{border-color:#ffe7e7!important}.w3-border-pale-green,.w3-hover-border-pale-green:hover{border-color:#e7ffe7!important}
 .w3-border-pale-yellow,.w3-hover-border-pale-yellow:hover{border-color:#ffffcc!important}.w3-border-pale-blue,.w3-hover-border-pale-blue:hover{border-color:#e7ffff!important}
+
+
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+    scroll-behavior: smooth;
+    font-family: 'Baloo Da 2';
+    box-sizing: border-box;
+}
+
+html,body
+{
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden; 
+    scroll-behavior: smooth;
+
+}
+
+html{
+    background-color: white;
+    font-family: 'Baloo Da 2', cursive, 'Helvetica Neue', Arial;
+    font-size: 20px;
+    margin:0;
+    padding:0;
+    scroll-behavior: smooth;
+    position: relative;
+}
+body{
+    margin:0px;
+}
+
+
+.nv-cover {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url(/public/pics/fitness.webp);
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    margin: 0px;
+    background-attachment: fixed;
+}
+
+h1{
+    letter-spacing: 2px;
+    word-spacing: 8px;
+    color: white;
+    font-weight: 100;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    font-size: 270%;
+}
+
+h3{
+    letter-spacing: 1px;
+    word-spacing: 4px;
+    color: white;
+    font-weight: 100;
+    text-transform: uppercase;
+    padding-top:10px;
+    margin-top:0;
+}
+
+.text {
+    height: 400px;
+    margin-top: 20px;
+    margin-left: 40px;
+    padding: 20px;
+}
+
+.intro .text {
+    background-color: rgba(0, 0, 0, 0.31);
+    width: 50%;
+    color: white;
+    float: left;
+}
+
+.nv-btn:link,
+.nv-btn:visited{
+    display: inline-block;
+    border-radius: 200px;
+    text-decoration: none;
+    padding: 10px 30px;
+    margin-top: 40px;
+    margin-right: 20px;
+    transition: background-color 0.5s, border 0.5s, color 0.5s;
+    box-shadow: 13px 18px 23px -2px rgba(0,0,0,0.75);
+    font-size: 1.2rem;
+}
+
+.nv-btn:hover,
+.nv-btn:active{
+    transform: translate(0, 3px);
+}
+
+.nv-btn-full:link,
+.nv-btn-full:visited{
+    background-color: #f39c12;
+    color: white;
+    border: 1px solid #f39c12;
+}
+
+.nv-btn-ghost:link,
+.nv-btn-ghost:visited{
+    color: #f39c12;
+    border: 1px solid #f39c12;
+}
+
+.nv-btn-full:hover,
+.nv-btn-full:active{
+    background-color: #d35400;
+    border: 1px solid #d35400;
+    
+}
+
+.nv-btn-ghost:hover,
+.nv-btn-ghost:active{
+    background-color: #d35400;
+    border: 1px solid #d35400;
+    color: white;
+}
+
+.logo {
+    height: 100px;
+    width: auto;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.main-nav {
+    float: right;
+    list-style: none;
+    margin-top: 30px;
+    margin-right: 40px;
+}
+
+.nv-btn-nav{
+    margin: 0;
+    background-color: none;
+}
+
+.main-nav li {
+    display: inline-block;
+    margin-left: 20px;
+    transition: border-bottom 0.3s;
+    font-size: 2rem;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.2rem;
+    
+}
+
+.main-nav li a:hover,
+.main-nav li a:active{
+    border-bottom: 2px solid #f39c12;
+    background-color: none;
+}
+
+.lavender{
+    color: #f39c12;
+}
+
+.logged-out{
+    float:right;
+}
+
+.logged-in{
+    float:right;
+}
+
+.banner-fit{
+    height: 30vh;
+    width: 100%;
+    background-color: #141414;
+}
+
+.about-fit{
+    height: 100vh;
+    background-size: cover;
+    width: 100%;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url(/public/pics/aboutbg.jpg);
+    align-content: center;
+}
+
+.about-box{
+    height: 30vh;
+    width: 25%;
+    float: left;
+    text-align: center;
+    align-content: center;
+    color: #f39c12;
+}
+
+.about-box h6{
+    font-size: 1.5rem;
+}
+
+.about-icon{
+    margin-top: 8%;
+}
+
+.about-page{
+    background-color: rgba(255, 255, 255, 0.822);
+    width: 30%;
+    float: left;
+    margin: 5%;
+    height: 70vh;
+    box-shadow: 15px 15px rgba(0, 0, 0, 0.233);
+    padding: 2%;
+}
+
+.center{
+    position:relative;
+    top: 5%;
+    left: 50%;
+    transform: translate(-40%, 50%);
+}
+
+footer{
+    background-color: #f39c12;
+    height: 25vh;
+}
+
+.footer-section{
+    width: 30%;
+    margin-left: 15%;
+    margin-top: 1%;
+    float: left;
+    height: 20vh;
+    margin-bottom: none;
+}
+
