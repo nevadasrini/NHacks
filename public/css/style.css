@@ -222,3 +222,18 @@ h3{
     left: 50%;
     transform: translate(-40%, 50%);
 }
+
+footer{
+    background-color: #f39c12;
+    height: 25vh;
+}
+
+.footer-section{
+    width: 30%;
+    margin-left: 15%;
+    margin-top: 1%;
+    float: left;
+    height: 20vh;
+    margin-bottom: none;
+}
+
