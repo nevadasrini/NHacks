@@ -176,7 +176,7 @@ function insertWorkoutsOntoPage(workouts, userInfo, page) {
         container.innerHTML += `
         <div class="card" style="width:350px;margin:10px">
         <div class="card-image waves-effect waves-block waves-light" >
-        <img class="activator" src="` + workout.imageRef + `" height="200px">
+        <img class="activator" src=images/"` + workout.imageRef + `" height="200px">
         </div>
         <div class="card-content">
         <span class="card-title activator grey-text text-darken-4">`+ workout.name +`<i class="material-icons right">more_vert</i></span>
