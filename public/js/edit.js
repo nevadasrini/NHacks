@@ -1,4 +1,8 @@
 const nameObject = document.getElementById('name');
+const levelObjects = document.getElementsByName('edit-level');
+const timeObjects = document.getElementsByName('edit-time');
+const spaceObjects = document.getElementsByName('edit-space');
+const equipmentObjects = document.getElementsByName('edit-equipment');
 
 
 
@@ -24,6 +28,30 @@ function displayAccount(user)
                 
                 if (doc.data().email == user.email){
                     nameObject.value = doc.data().name;
+
+                    for (i = 0 ; i < levelObjects.length ; i ++) {
+                        if (doc.data().level == levelObjects[i].getAttribute('value')) {
+                            levelObjects[i].checked = true;
+                        }
+                    }
+
+                    for (i = 0 ; i < timeObjects.length ; i ++) {
+                        if (doc.data().time == timeObjects[i].getAttribute('value')) {
+                            timeObjects[i].checked = true;
+                        }
+                    }
+
+                    for (i = 0 ; i < spaceObjects.length ; i ++) {
+                        if (doc.data().space.includes(spaceObjects[i].getAttribute('value'))) {
+                            spaceObjects[i].checked = true;
+                        }
+                    }
+
+                    for (i = 0 ; i < equipmentObjects.length ; i ++) {
+                        if (doc.data().equipment.includes(equipmentObjects[i].getAttribute('value'))) {
+                            equipmentObjects[i].checked = true;
+                        }
+                    }
                     
                 }
 
