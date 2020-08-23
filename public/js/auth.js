@@ -30,6 +30,7 @@ signupForm.addEventListener('submit', (e) => {
         M.Modal.getInstance(modal).close();
         signupForm.reset();
     })
+    
 })
 
 // log out
