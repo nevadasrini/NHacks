@@ -20,18 +20,18 @@ class Day{
     }
 }
 
-var days = [true, false, true, true, false, true, false]; //representative of Mon Tues Weds Thurs Fri Sat Sun
-var dayCardio = [false, false, false, false, false, false, false];
-var dayStrength = [false, false, false, false, false, false, false];
-var dayWorkouts =[null,null,null,null,null,null,null];
+let days = [true, false, true, true, false, true, false]; //representative of Mon Tues Weds Thurs Fri Sat Sun
+let dayCardio = [false, false, false, false, false, false, false];
+let dayStrength = [false, false, false, false, false, false, false];
+let dayWorkouts =[null,null,null,null,null,null,null];
 
-var cardio = true;
-var strength = false;
-var startDay = -1;
-var numRest = 0;
-var numWork = 0;
-var timePerDay = 60; //in minutes
-var group = [0,0];
+let cardio = true;
+let strength = false;
+let startDay = -1;
+let numRest = 0;
+let numWork = 0;
+let timePerDay = 60; //in minutes
+let group = [0,0];
 
 auth.onAuthStateChanged(user => {
     if (user) {

@@ -23,6 +23,8 @@ signupForm.addEventListener('submit', (e) => {
     // get user info
     const email = signupForm['signup-email'].value;
     const password = signupForm['signup-password'].value;
+    const level = signupForm['signup-level'].value;
+    const time = signupForm['signup-time'].value;
     
     // sign up the user
     auth.createUserWithEmailAndPassword(email, password).then(cred => {
@@ -39,7 +41,7 @@ logout.addEventListener('click', (e) => {
     // prevent default actions (refresh)
     e.preventDefault()
     auth.signOut().then(() => {
-        //
+        console.log("logged out");
     })
 })
 
