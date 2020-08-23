@@ -79,27 +79,30 @@ function parseWorkouts() {
             }
         )
     }
-    console.log(returnArray);
+    
     return returnArray;
 }
 
 function checkWorkout (user, workout, type) {
+    
+    if (type == workout.type && parseInt(currentUserData.time) >= parseInt(workout.time)){
 
-    if (type == workout.type && parseInt(user.time) >= parseInt(workout.time)){
         let equipMatch = false;
         let spaceMatch = false;
-        user.equipment.forEach( equip => {
+        currentUserData.equipment.forEach( equip => {
+
             if (equip in workout.equipment.split(":")){
                 equipMatch = true;
             }
         })
-        user.space.forEach( space => {
+        currentUserData.space.forEach( space => {
             if (space in workout.space.split(":")){
                 spaceMatch = true;
             }
         })
 
         if ((equipMatch || workout.equipment == "none") && (spaceMatch || workout.space == "none")) {
+            console.log("SUPER");
             return true;
         }
     }
@@ -108,7 +111,7 @@ function checkWorkout (user, workout, type) {
 
 function createPageNumbers(sortedWorkouts, userInfo){
     const pager = document.getElementById("pagination");
-    for (i = 0 ; i < Math.ceil(sortedWorkouts.length / 4) ; i++)
+    for (let i = 0 ; i < Math.ceil(sortedWorkouts.length / 4) ; i++)
     {
         let pageLink = document.createElement("a");
         pageLink.href = "#";
@@ -125,12 +128,13 @@ function createPageNumbers(sortedWorkouts, userInfo){
         pager.appendChild(pageLink)
     }
 
-    goToPage(sortedWorkouts, userInfo, 0);
+    goToPage(sortedWorkouts, userInfo, 1);
 }
 
 function goToPage(sortedWorkouts, userInfo, page){
     const pager = document.getElementById("pagination");
     const pagerChildren = pager.childNodes;
+
     pagerChildren[page].classList.remove("w3-hover-black");
     pagerChildren[page].classList.add("w3-black");
 
