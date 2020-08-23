@@ -112,6 +112,7 @@ function checkWorkout (user, workout, type) {
 
 function createPageNumbers(sortedWorkouts, userInfo){
     const pager = document.getElementById("pagination");
+    pager.innerHTML = "";
     for (let i = 0 ; i < Math.ceil(sortedWorkouts.length / 4) ; i++)
     {
         let pageLink = document.createElement("a");
@@ -135,6 +136,8 @@ function createPageNumbers(sortedWorkouts, userInfo){
 function goToPage(sortedWorkouts, userInfo, page){
     const pager = document.getElementById("pagination");
     const pagerChildren = pager.childNodes;
+
+    console.log(pagerChildren);
 
     pagerChildren[page].classList.remove("w3-hover-black");
     pagerChildren[page].classList.add("w3-black");
