@@ -20,13 +20,13 @@ class Day{
     }
 }
 
-let days = [true, false, true, true, false, true, false]; //representative of Mon Tues Weds Thurs Fri Sat Sun
+let days = [true, false, true, false, false, true, false]; //representative of Mon Tues Weds Thurs Fri Sat Sun
 let dayCardio = [false, false, false, false, false, false, false];
 let dayStrength = [false, false, false, false, false, false, false];
 let dayWorkouts =[null,null,null,null,null,null,null];
 
 let cardio = true;
-let strength = false;
+let strength = true;
 let startDay = -1;
 let numRest = 0;
 let numWork = 0;
@@ -84,6 +84,7 @@ else {
                 else{
                     dayCardio[i] = true;
                 }
+                alt= !alt;
             }
         }
     }
@@ -102,7 +103,7 @@ console.log(tableDays);
 
 
 for(let i = 0; i<days.length;i++){
-    let childList = tableDays.cells[i];
+    let childList = tableDays.cells[i].childNodes[1];
     if(days[i]){
         dayWorkouts[i] = new Day(i, dayCardio[i], dayStrength[i], 60);
         //insertWorkouts("cardio").then(queried => dayWorkouts[i].workouts = queried).catch(error=>console.error(error));
