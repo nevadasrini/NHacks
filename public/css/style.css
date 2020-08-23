@@ -267,8 +267,15 @@ footer{
 
 .selector-label {
     padding-right: 18px;
+    color: #f39c12;
+}
+.topLabel{
+    color: #d35400;
 }
 
+.cover{
+    background-color: #141414;
+}
 #modal-schedule{
     text-align: center
 }
