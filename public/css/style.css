@@ -14,7 +14,6 @@
 html,body
 {
     width: 100%;
-    height: 100%;
     margin: 0px;
     padding: 0px;
     overflow-x: hidden; 
@@ -229,13 +228,17 @@ footer{
     height: 25vh;
 }
 
+h5{
+    font-size: 1rem;
+}
 .footer-section{
     width: 30%;
     margin-left: 15%;
-    margin-top: 1%;
+    margin-top: 0.5%;
     float: left;
     height: 20vh;
     margin-bottom: none;
+    font-size: 0.7rem;
 }
 
 #schedule-wrapper{
@@ -275,11 +278,16 @@ footer{
 
 .cover{
     background-color: #141414;
+    height: 100vh;
 }
 #modal-schedule{
     text-align: center
 }
 
 
+.cover2{
+    background-color: #141414;
+    height: 125vh;
+}
 
 
