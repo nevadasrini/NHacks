@@ -3,7 +3,7 @@
 
 const data = `
 
-NEWPush-ups,upper body,moderate,10:15:20,none,none,0,push-up.webp
+NEWPush-ups,upper-body,moderate,10:15:20,none,none,0,push-up.webp
 
 NEWSit-ups,core,moderate,10:15:20,none,none,0,sit-up.jpeg
 
@@ -11,9 +11,9 @@ NEWRunning,cardio,moderate,30:60:90,none,outdoors,2,running.webp
 
 NEWTreadmill running,cardio,moderate,30:60:90,treadmill,indoors,1,treadmill.jpg
 
-NEWSquats,lower body,moderate,10:15:20,none,none,0,squats.jpeg
+NEWSquats,lower-body,moderate,10:15:20,none,none,0,squats.jpeg
 
-NEWBurpees,upper body,intense,10:20:30,none,none,0,burpees.jpeg
+NEWBurpees,upper-body,intense,10:20:30,none,none,0,burpees.jpeg
 
 NEWJump-rope,cardio,moderate,5:10:15,jump-rope,none,1,jump-rope.jpg
 
