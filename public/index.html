@@ -4,6 +4,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
         <title>MyFit</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
         <!-- CSS  -->
         <link href="https://fonts.googleapis.com/css?family=Baloo+Da+2&display=swap" rel="stylesheet">
         <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
@@ -31,7 +32,6 @@
                 <a href="#" target="_blank" class="nv-btn nv-btn-full">Shape Up!</a>
                 <a href="#about" class="nv-btn nv-btn-ghost">Learn more</a>
             </div>
-            
         </div>
         <main>
 
@@ -39,22 +39,72 @@
         <footer>
 
         </footer>
+
+        <!--MODALS-->
+        <!--SIGN UP MODAL: pops up when sign in is clicked-->
+        <div id="modal-signup" class="modal">
+            <div class="modal-content">
+              <h4>Sign up</h4><br />
+              <form id="signup-form">
+                <div class="input-field">
+                  <input type="email" id="signup-email" required />
+                  <label for="signup-email">Email address</label>
+                </div>
+                <div class="input-field">
+                  <input type="password" id="signup-password" required />
+                  <label for="signup-password">Choose password</label>
+                </div>
+                <button class="btn lavender darken-2 z-depth-0">Sign up</button>
+              </form>
+            </div>
+          </div>
+        
+          <!-- LOGIN MODAL: pops up when login is clicked -->
+          <div id="modal-login" class="modal">
+            <div class="modal-content">
+              <h4>Login</h4><br />
+              <form id="login-form">
+                <div class="input-field">
+                  <input type="email" id="login-email" required />
+                  <label for="login-email">Email address</label>
+                </div>
+                <div class="input-field">
+                  <input type="password" id="login-password" required />
+                  <label for="login-password">Your password</label>
+                </div>
+                <button class="btn lavender darken-2 z-depth-0">Login</button>
+              </form>
+            </div>
+         </div>
+
+        <!--SCRIPTS-->
         <script src="js/materialize.js"></script>
         <!-- The core Firebase JS SDK is always required and must be listed first -->
-        <script src="/__/firebase/7.19.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-auth.js"></script>
 
-        <!-- TODO: Add SDKs for Firebase products that you want to use
-            https://firebase.google.com/docs/web/setup#available-libraries -->
-        <script src="/__/firebase/7.19.0/firebase-analytics.js"></script>
-        <!-- Add Firebase products that you want to use -->
-        <script src="/__/firebase/7.19.0/firebase-auth.js"></script>
-        <script src="/__/firebase/7.19.0/firebase-firestore.js"></script>
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyAhCfldT_zbbAK8Jl6usEtYbC6rEhnbTE8",
+    authDomain: "nhacks-671d0.firebaseapp.com",
+    databaseURL: "https://nhacks-671d0.firebaseio.com",
+    projectId: "nhacks-671d0",
+    storageBucket: "nhacks-671d0.appspot.com",
+    messagingSenderId: "658368861026",
+    appId: "1:658368861026:web:1a5f4bda10c4b0be3cd23b",
+    measurementId: "G-5GNWK6YYMX"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
 
-        <!-- Initialize Firebase -->
-        <script src="/__/firebase/init.js"></script>
-
-        <script src="js/queries.js"></script>
+    // make auth and firestore references
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+</script>
         <script src="js/auth.js"></script>
+        <script src="js/index.js"></script>
 
     </body>
     
