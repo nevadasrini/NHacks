@@ -6,11 +6,9 @@
 // listen for auth status changes and logs them to the console
 auth.onAuthStateChanged(user => {
     if (user) {
-        if(document.location.href == "index.html")  document.location.href = "workout.html";
         console.log('user logged in: ', user)
         setupUI(user);
     } else {
-        if(document.location.href != "index.html")    document.location.href = "index.html";
         setupUI();
         console.log('user logged out');
     }
