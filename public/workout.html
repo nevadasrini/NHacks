@@ -55,8 +55,60 @@
 
 <section id = "schedule-wrapper" class = "black">
   <h3>Schedule</h3>
-  <p>Create an auto-generated schedule as a starting point for your fitness journey!</p>
-  <a href="#" data-target="modal-schedule" class="nv-btn nv-btn-full modal-trigger">Let's Do It!</a>
+  <div id="new">
+    <p>Create an auto-generated schedule as a starting point for your fitness journey!</p>
+    <a href="#" data-target="modal-schedule" class="nv-btn nv-btn-full modal-trigger">Let's Do It!</a>
+  </div>
+  <div id = "made">
+    <table id = "schedule">
+      <thead>
+        <tr id = "table-head">
+          <th>Monday</th>
+          <th>Tuesday</th>
+          <th>Wednesday</th>
+          <th>Thursday</th>
+          <th>Friday</th>
+          <th>Saturday</th>
+          <th>Sunday</th>
+        </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <ul>
+            
+          </ul>
+        </td>
+        <td>
+          <ul>
+            
+          </ul>
+        </td><td>
+          <ul>
+            
+          </ul>
+        </td><td>
+          <ul>
+            
+          </ul>
+        </td><td>
+          <ul>
+            
+          </ul>
+        </td><td>
+          <ul>
+            
+          </ul>
+        </td>
+        <td>
+          <ul>
+            
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+    </table>
+  </div>
 </section>
   
   
@@ -207,17 +259,42 @@
 <!-- SCHEDULE MODAL: pops up when button is clicked -->
 <div id="modal-schedule" class="modal">
   <div class="modal-content">
-    <center><h4>Login</h4><br/></center>
+    <center><h4>Just one thing</h4><br/></center>
     <form id="schedule-form">
-      <div class="input-field">
-        <input type="email" id="login-email" required />
-        <label for="login-email">Email address</label>
-      </div>
-      <div class="input-field">
-        <input type="password" id="login-password" required />
-        <label for="login-password">Your password</label>
-      </div>
-      <button class="btn lavender darken-2 z-depth-0">Login</button>
+        <center><h6>Which days can you workout?</h6></center>
+        <br>
+        <p>
+          <label>
+            <input id="Monday" class="with-gap" name="days" type="checkbox"/>
+            <span class="selector-label">Monday</span>
+          </label>
+          <label>
+            <input id="Tuesday" class="with-gap" name="days" type="checkbox"/>
+            <span class="selector-label">Tuesday</span>
+          </label>
+          <label>
+            <input id="Wednesday" class="with-gap" name="days" type="checkbox"/>
+            <span class="selector-label">Wednesday</span>
+          </label>
+          <label>
+            <input id="Thursday" class="with-gap" name="days" type="checkbox"/>
+            <span class="selector-label">Thursday</span>
+          </label>
+          <label>
+            <input id="Friday" class="with-gap" name="days" type="checkbox"/>
+            <span class="selector-label">Friday</span>
+          </label>
+          <label>
+            <input id="Saturday" class="with-gap" name="days" type="checkbox"/>
+            <span class="selector-label">Saturday</span>
+          </label>
+          <label>
+            <input id="Sunday" class="with-gap" name="days" type="checkbox"/>
+            <span class="selector-label">Sunday</span>
+          </label>
+        </p>
+        <br><br>
+      <button class="btn lavender darken-2 z-depth-0">Submit</button>
     </form>
   </div>
 </div>

@@ -247,6 +247,20 @@ footer{
     
 
 }
+
+#schedule-wrapper table {
+    
+    text-align: center;
+}
+
+#schedule-wrapper table tr th{
+    text-align: center;
+}
+
+#schedule-wrapper table tr td{
+    text-align: center;
+}
+
 .selector-label {
     padding-right: 18px;
 }

@@ -94,13 +94,36 @@ else {
         }
     }
 }
+console.log('yee');
+
+let table = document.getElementById("schedule"); //gets schedules week graphic
+let tableDays = table.rows[1];
+console.log(tableDays);
 
 
 for(let i = 0; i<days.length;i++){
+    let childList = tableDays.cells[i];
     if(days[i]){
-        dayWorkouts[i] = new Day(dayCardio, dayStrength, 60);
-        insertWorkouts("cardio").then(queried => dayWorkouts[i].workouts = queried).catch(error=>console.error(error));
+        dayWorkouts[i] = new Day(i, dayCardio[i], dayStrength[i], 60);
+        //insertWorkouts("cardio").then(queried => dayWorkouts[i].workouts = queried).catch(error=>console.error(error));
         console.log(dayWorkouts[i]);
+
+        if(dayStrength[i]){
+            var x = document.createElement("li");
+            x.innerText = "Strength";
+            childList.appendChild(x);
+        }
+
+        if(dayCardio[i]){
+            var x = document.createElement("li");
+            x.innerText = "Cardio";
+            childList.appendChild(x);
+        }
+    }
+    else{
+            var x = document.createElement("li");
+            x.innerText = "Rest";
+            childList.appendChild(x);
     }
 }
 }
