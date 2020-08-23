@@ -8,6 +8,7 @@
     background: transparent;
     scroll-behavior: smooth;
     font-family: 'Baloo Da 2';
+    box-sizing: border-box;
 }
 
 html,body
@@ -173,3 +174,66 @@ h3{
 .logged-in{
     float:right;
 }
+
+.banner-fit{
+    height: 30vh;
+    width: 100%;
+    background-color: #141414;
+}
+
+.about-fit{
+    height: 100vh;
+    background-size: cover;
+    width: 100%;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url(/public/pics/aboutbg.jpg);
+    align-content: center;
+}
+
+.about-box{
+    height: 30vh;
+    width: 25%;
+    float: left;
+    text-align: center;
+    align-content: center;
+    color: #f39c12;
+}
+
+.about-box h6{
+    font-size: 1.5rem;
+}
+
+.about-icon{
+    margin-top: 8%;
+}
+
+.about-page{
+    background-color: rgba(255, 255, 255, 0.822);
+    width: 30%;
+    float: left;
+    margin: 5%;
+    height: 70vh;
+    box-shadow: 15px 15px rgba(0, 0, 0, 0.233);
+    padding: 2%;
+}
+
+.center{
+    position:relative;
+    top: 5%;
+    left: 50%;
+    transform: translate(-40%, 50%);
+}
+
+footer{
+    background-color: #f39c12;
+    height: 25vh;
+}
+
+.footer-section{
+    width: 30%;
+    margin-left: 15%;
+    margin-top: 1%;
+    float: left;
+    height: 20vh;
+    margin-bottom: none;
+}
+
